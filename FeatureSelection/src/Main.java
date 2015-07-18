@@ -26,8 +26,8 @@ public class Main {
 			e.printStackTrace();
 		}
 		
-		for (int i = 0; i < 50; i++) {
-			System.out.println(featureList[Data.bestFeature[i]]);
+		for (int i = 0; i < Data.featureNum; i++) {
+			System.out.printf("%d : %s\n", i + 1, featureList[Data.bestFeature[i]]);
 		}
 	}
 }
