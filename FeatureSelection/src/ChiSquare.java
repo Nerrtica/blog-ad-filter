@@ -40,7 +40,7 @@ public class ChiSquare {
 		}
 		Data.setBestFeature(bestFeature);
 		for (int i = 0; i < Data.featureNum; i++) {
-			System.out.printf("Feature %d : %.6f\n", (int)chiSquare[i][1], chiSquare[i][0]);
+			//System.out.printf("Feature %d : %.6f\n", (int)chiSquare[i][1], chiSquare[i][0]);
 			if (chiSquare[i][0] < minChi) {
 				return i;
 			}
