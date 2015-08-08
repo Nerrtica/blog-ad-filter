@@ -158,7 +158,7 @@ def svm_train(arg1, arg2=None, arg3=None):
 		if param.svm_type in [EPSILON_SVR, NU_SVR]:
 			print("Cross Validation Mean squared error = %g" % MSE)
 			print("Cross Validation Squared correlation coefficient = %g" % SCC)
-			return MSE
+			return (MSE, SCC)
 		else:
 			print("Cross Validation Accuracy = %g%%" % ACC)
 			return ACC
