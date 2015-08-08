@@ -170,3 +170,5 @@ Temporary Items
 .apdisk
 
 .recommenders/
+
+libsvm-3.20/python/data/
