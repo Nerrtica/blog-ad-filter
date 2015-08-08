@@ -18,9 +18,7 @@ class performance_measure:
     def makeFile (self, fileName, featureList):
         f = open(fileName, 'w')
         for i in range(len(self.parsed_json)):
-            f.write("%d " % i)
-            # label file not exists
-
+            f.write("%s " % self.parsed_json[i]['label'])
             for feature in featureList:
                 f.write("%s " % self.parsed_json[i][feature])
             f.write("\n")
@@ -47,15 +45,35 @@ class performance_measure:
             SCCresult.append(result[1])
         return SCCresult
 
+    def saveResult (self, SCCresult):
+        f = open("data/result.json", 'w')
+        selectedFeatureList = []
+        i = SCCresult.index(max(SCCresult))
+        index = 0
+        while i > 0:
+            if i % 2 == 1:
+                selectedFeatureList.append(self.featureList[index])
+            index += 1
+            i //= 2
+        json.dump(selectedFeatureList, f)
+        f.close()
+
     def play (self):
         self.readFile()
         self.makeAllCombi()
         SCCresult = self.svmCalculate()
+        self.saveResult(SCCresult)
         print("order", SCCresult.index(max(SCCresult)), "is optimum combination")
 
 # performance_measure class use example
 fileName = "data/data.json"
-featureList = ["frequancy_unigram", "frequancy_bigram", "frequancy_trigram"]
+featureListFileName = "data/featureList.json"
+def readFeatureList (featureListFileName):
+    f = open(featureListFileName, 'r')
+    parsed_featureList = json.loads(f.read())
+    f.close()
+    return parsed_featureList
+featureList = readFeatureList(featureListFileName)
 pm = performance_measure(fileName, featureList)
 pm.play()
 
@@ -74,9 +92,7 @@ class make_model:
     def makeFile (self):
         f = open("{0}{1}".format(self.jsonFileName[:-5], ".txt"), 'w')
         for i in range(len(self.parsed_json)):
-            f.write("%d " % i)
-            # label file not exists
-
+            f.write("%s " % self.parsed_json[i]['label'])
             for feature in self.featureList:
                 f.write("%s " % self.parsed_json[i][feature])
             f.write("\n")
@@ -112,9 +128,7 @@ class predict_label:
     def makeFile (self):
         f = open("{0}{1}".format(self.jsonFileName[:-5], ".txt"), 'w')
         for i in range(len(self.parsed_json)):
-            f.write("%d " % i)
-            # label file not exists
-
+            f.write("%s " % self.parsed_json[i]['label'])
             for feature in self.featureList:
                 f.write("%s " % self.parsed_json[i][feature])
             f.write("\n")
@@ -127,6 +141,7 @@ class predict_label:
         return result[0]
 
     def play (self):
+
         self.readFile()
         self.makeFile()
         result = self.svmPredict()
@@ -134,5 +149,6 @@ class predict_label:
 
 # predict_label class use example
 predictFileName = "data/data.json"
+featureList = readFeatureList("data/result.json")
 pl = predict_label(predictFileName, featureList, modelFileName)
 result = pl.play()
