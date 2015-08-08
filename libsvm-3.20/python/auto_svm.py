@@ -110,6 +110,7 @@ class make_model:
 
 # make_model class use example
 modelFileName = "data/model.txt"
+featureList = readFeatureList("data/result.json")
 mm = make_model(fileName, featureList, modelFileName)
 mm.play()
 
