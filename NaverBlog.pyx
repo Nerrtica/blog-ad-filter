@@ -24,7 +24,6 @@ class BlogPost(object):
         self.tag = {}
 
         self.comment = []
-
     # crawling from pc page
         self.image = ''
 
@@ -45,6 +44,8 @@ class BlogPost(object):
             protocol = url.split('//')[0] + '//'
             url = url.split('//')[-1]
         protocol = 'http://'
+        if url.startswith('m.'):
+            url = url[2:]
 
         # http://blog.naver.com/'blogId'?Redirect=Log&logNo='logNo'
         if '?' in url:
@@ -83,6 +84,7 @@ class BlogPost(object):
         comment_url = 'http://blog.naver.com/CommentList.nhn?blogId=%s&logNo=%s'%(self.blogId, self.logNo)
 
         return pc_url, m_url, comment_url
+        
 
     # requst to mobile page
     def get_m_post(self, url):
@@ -113,6 +115,7 @@ class BlogPost(object):
             self.tag[e[0].encode('utf8')] = e[1].encode('utf8')
         del tag
 
+        
     def get_pc_post(self, url):
         self.pc_url = url
 
@@ -141,14 +144,10 @@ class BlogPost(object):
         contents_image = [e['src'].encode('utf8') for e in contents.findAll('img')]
 
         self.img_cnt = len(contents_image)
-	
-        self.image_banner = False
-	contents_image.reverse()
+
         for image in contents_image:
             img = crawler.get_image(image)
-	    print img.size
-            if AdFilter.image_banner_compare(img) == True:
-                self.image_banner = True
+            self.image_banner = AdFilter.image_banner_compare(img)
 
     # post comment crawling
     def get_comment(self, url):
@@ -201,6 +200,8 @@ class BlogPost(object):
         }
         return d
 
+
+
 def post_crawling(url):
     
     blog = BlogPost()
@@ -211,30 +212,28 @@ def post_crawling(url):
     blog.get_comment(comment_url)
     blog.get_pc_post(pc_url)
     
-    with open('data.json', 'w') as f:
-        json.dump(blog.write_data_as_dict(), f, ensure_ascii=False, indent=True)    
-
     return blog
+
 
 if __name__ == '__main__':
     total = time.time()
-    
-    b = BlogPost()
-    url = 'http://blog.naver.com/flower2nd/220447546201'
-    pc_url, m_url, comment_url = b.redirect_url(url)#('http://blog.naver.com/nara24733/220440242096')
-    t = time.time()
-    b.get_m_post(m_url)
-    print 'mobile ',time.time()-t
 
-    t = time.time()
-    b.get_comment(comment_url)
-    print 'comment', time.time()-t
-    
-    t = time.time()
-    b.get_pc_post(pc_url)
-    print 'pc ', time.time()-t
-    
+    with open('urlList.txt') as f:
+        url_list = f.read().split('\n')
+
+    data = []
+
+    for url in url_list:
+        try :
+            post = post_crawling(url)
+            data.append(post.write_data_as_dict())
+        except IndexError:
+            with open('error.txt', 'a') as f:
+                f.write('[error] ' + url)
+        except IOError:
+            with open('error.txt', 'a') as f:
+                f.write('[error] ' + url)
     with open('data.json', 'w') as f:
-        json.dump(b.write_data_as_dict(), f, ensure_ascii=False, indent=True)
+        json.dump(data, f, ensure_ascii=False, indent=True)
 
     print 'total ', time.time()-total

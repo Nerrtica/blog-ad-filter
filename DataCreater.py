@@ -165,7 +165,6 @@ class DataCreater:
 				else:
 					spontext_cnt = 0
 					for stc in post["content_sentenceList"]:
-						print(",".join([text["text"] for text in stc]))
 						spontext_cnt = spontext_cnt + self.stpm.sponTextCount(stc)
 						if spontext_cnt > 0:
 							post["sponser"] = "4:1"
@@ -179,7 +178,10 @@ class DataCreater:
 				post["word_cnt"] = "6:" + str(len(contents_text.split()))
 
 				# 문장내 평균 단어수
-				post["wordInSentence_avg"] = "7:" + str(len(contents_text.split())/len(post["content_sentenceList"]))
+				if len(post["content_sentenceList"]) != 0:
+					post["wordInSentence_avg"] = "7:" + str(len(contents_text.split())/len(post["content_sentenceList"]))
+				else:
+					post["wordInSentence_avg"] = "7:0"
 
 				# 외부 위젯 배너 수
 				post["external_banner_cnt"] = "8:" + str(post["external_banner"])

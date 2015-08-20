@@ -35,7 +35,8 @@ calculCorrelation(person)
 """
 
 
-SVMparameter = ["-s 3 -t 0 -v 10 -q", "-s 3 -t 2 -v 10 -q", "-s 0 -t 0 -v 10 -q", "-s 0 -t 2 -v 10 -q", "-s 2 -t 0 -v 10 -q"]
+# SVMparameter = ["-s 3 -t 0 -v 10 -q", "-s 3 -t 2 -v 10 -q", "-s 0 -t 0 -v 10 -q", "-s 0 -t 2 -v 10 -q", "-s 2 -t 0 -v 10 -q"]
+SVMparameter = ["-s 3 -t 0 -v 10 -q", "-s 3 -t 2 -v 10 -q"]
 for param in SVMparameter:
     pm = performance_measure(parsed_json, featureList, param)
     pm.play()

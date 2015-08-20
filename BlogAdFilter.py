@@ -9,13 +9,11 @@ import sys
 import os
 
 import NaverBlog
-import json
 
 from DataCreater import DataCreater
 
 sys.path.insert(0, os.getcwd() + "/libsvm-3.20/python")
 from auto_svm import *
-
 
 reload(sys)
 sys.setdefaultencoding('utf8')
@@ -45,6 +43,7 @@ def crawling():
 	
 
         crawler = NaverBlog.post_crawling(url)
+
         
 	data = crawler.write_data_as_dict()
     dataCreater = DataCreater()
@@ -55,6 +54,7 @@ def crawling():
     predictor = predict_label(json.loads(dataCreater.createDataSet()), 
         json.loads(dataCreater.getFeatureList()))
     return str(predictor.play()[0])
-    # return data/Creater.createDataSet()
+    # return data/Creater.createDataSet()\
+
 if __name__ == '__main__':
-    app.run(host='0.0.0.0')
+    app.run()
