@@ -171,4 +171,5 @@ Temporary Items
 
 .recommenders/
 
-libsvm-3.20/python/data/
+temp/
+libsvm-3.20/python/temp/

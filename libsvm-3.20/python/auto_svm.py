@@ -38,13 +38,13 @@ class performance_measure:
                     selectedFeatureList.append(self.featureList[index])
                 index += 1
                 j //= 2
-            self.makeFile("{0}{1}{2}".format("data/data", i, ".txt"), selectedFeatureList)
+            self.makeFile("{0}{1}{2}".format("temp/data", i, ".txt"), selectedFeatureList)
 
     def svmCalculate (self):
         SCCresult = []
         for i in range(1, 2 ** len(self.featureList)):
             print("order", i)
-            prob = svm_read_problem("{0}{1}{2}".format("data/data", i, ".txt"))
+            prob = svm_read_problem("{0}{1}{2}".format("temp/data", i, ".txt"))
             result = svm_train(prob[0], prob[1], self.SVMparameter)
             SCCresult.append(result[1])
         return SCCresult
@@ -82,11 +82,11 @@ class make_model:
     def __init__ (self, parsed_json, featureList):
         self.parsed_json = parsed_json
         self.featureList = featureList
-        self.modelFileName = "data/model.txt"
+        self.modelFileName = "model/model.txt"
         self.SVMparameter = "-s 0 -t 0 -q"
 
     def makeFile (self):
-        f = open("data/data.txt", 'w')
+        f = open("temp/data.txt", 'w')
         for i in range(len(self.parsed_json)):
             if "-s 3" in self.SVMparameter or "-s 4" in self.SVMparameter:
                 f.write("%s " % self.parsed_json[i]['label'])
@@ -103,7 +103,7 @@ class make_model:
         f.close()
 
     def svmTrain (self):
-        prob = svm_read_problem("data/data.txt")
+        prob = svm_read_problem("temp/data.txt")
         model = svm_train(prob[0], prob[1], self.SVMparameter)
         svm_save_model(self.modelFileName, model)
 
@@ -121,10 +121,10 @@ class predict_label:
     def __init__ (self, parsed_json, featureList):
         self.parsed_json = parsed_json
         self.featureList = featureList
-        self.modelFileName = "data/model.txt"
+        self.modelFileName = "model/model.txt"
 
     def makeFile (self):
-        f = open("data/data.txt", 'w')
+        f = open("temp/data.txt", 'w')
         for i in range(len(self.parsed_json)):
             f.write("%s " % self.parsed_json[i]['label'])
             for feature in self.featureList:
@@ -133,7 +133,7 @@ class predict_label:
         f.close()
 
     def svmPredict (self):
-        prob = svm_read_problem("data/data.txt")
+        prob = svm_read_problem("temp/data.txt")
         model = svm_load_model (self.modelFileName)
         result = svm_predict(prob[0], prob[1], model, "-q")
         return result[0]
