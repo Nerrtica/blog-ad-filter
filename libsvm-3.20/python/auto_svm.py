@@ -82,7 +82,7 @@ class make_model:
     def __init__ (self, parsed_json, featureList):
         self.parsed_json = parsed_json
         self.featureList = featureList
-        self.modelFileName = "model.txt"
+        self.modelFileName = "data/model.txt"
         self.SVMparameter = "-s 0 -t 0 -q"
 
     def makeFile (self):
@@ -121,7 +121,7 @@ class predict_label:
     def __init__ (self, parsed_json, featureList):
         self.parsed_json = parsed_json
         self.featureList = featureList
-        self.modelFileName = "model.txt"
+        self.modelFileName = "data/model.txt"
 
     def makeFile (self):
         f = open("data/data.txt", 'w')
