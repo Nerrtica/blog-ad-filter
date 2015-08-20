@@ -218,7 +218,7 @@ def post_crawling(url):
 if __name__ == '__main__':
     total = time.time()
 
-    with open('urlList.txt') as f:
+    with open('/crawlingData/urlList.txt') as f:
         url_list = f.read().split('\n')
 
     data = []
@@ -233,7 +233,7 @@ if __name__ == '__main__':
         except IOError:
             with open('error.txt', 'a') as f:
                 f.write('[error] ' + url)
-    with open('data.json', 'w') as f:
+    with open('/crawlingData/data.json', 'w') as f:
         json.dump(data, f, ensure_ascii=False, indent=True)
 
     print 'total ', time.time()-total

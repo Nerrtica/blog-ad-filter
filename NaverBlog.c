@@ -920,7 +920,6 @@ static char __pyx_k_qualname[] = "__qualname__";
 static char __pyx_k_url_list[] = "url_list";
 static char __pyx_k_web_data[] = "web_data";
 static char __pyx_k_NaverBlog[] = "NaverBlog";
-static char __pyx_k_data_json[] = "data.json";
 static char __pyx_k_date_time[] = "date_time";
 static char __pyx_k_error_txt[] = "error.txt";
 static char __pyx_k_get_image[] = "get_image";
@@ -934,7 +933,6 @@ static char __pyx_k_comment_url[] = "comment_url";
 static char __pyx_k_get_comment[] = "get_comment";
 static char __pyx_k_get_pc_post[] = "get_pc_post";
 static char __pyx_k_html_parser[] = "html.parser";
-static char __pyx_k_urlList_txt[] = "urlList.txt";
 static char __pyx_k_url_element[] = "url_element";
 static char __pyx_k_comment_list[] = "comment_list";
 static char __pyx_k_ensure_ascii[] = "ensure_ascii";
@@ -956,10 +954,12 @@ static char __pyx_k_BlogPost_get_comment[] = "BlogPost.get_comment";
 static char __pyx_k_BlogPost_get_pc_post[] = "BlogPost.get_pc_post";
 static char __pyx_k_image_banner_compare[] = "image_banner_compare";
 static char __pyx_k_BlogPost_redirect_url[] = "BlogPost.redirect_url";
+static char __pyx_k_crawlingData_data_json[] = "/crawlingData/data.json";
+static char __pyx_k_crawlingData_urlList_txt[] = "/crawlingData/urlList.txt";
 static char __pyx_k_BlogPost_write_data_as_dict[] = "BlogPost.write_data_as_dict";
+static char __pyx_k_Users_jeonhyojun_Desktop_python[] = "/Users/jeonhyojun/Desktop/python_workspace/blog-ad-filter/NaverBlog.pyx";
 static char __pyx_k_http_blog_naver_com_CommentList[] = "http://blog.naver.com/CommentList.nhn?blogId=%s&logNo=%s";
 static char __pyx_k_supported_url_type_blog_naver_c[] = " [supported url type] blog.naver.com/blogId/logNo\n                                blodId.blog.me/logNo";
-static char __pyx_k_C_Users_pjs_Desktop_flask_test_v[] = "C:\\Users\\pjs\\Desktop\\flask_test_ver2\\BlogAdFilter\\NaverBlog.pyx";
 static PyObject *__pyx_kp_s_;
 static PyObject *__pyx_n_s_AdFilter;
 static PyObject *__pyx_n_s_BeautifulSoup;
@@ -970,11 +970,11 @@ static PyObject *__pyx_n_s_BlogPost_get_m_post;
 static PyObject *__pyx_n_s_BlogPost_get_pc_post;
 static PyObject *__pyx_n_s_BlogPost_redirect_url;
 static PyObject *__pyx_n_s_BlogPost_write_data_as_dict;
-static PyObject *__pyx_kp_s_C_Users_pjs_Desktop_flask_test_v;
 static PyObject *__pyx_n_s_Crawler;
 static PyObject *__pyx_n_s_IOError;
 static PyObject *__pyx_n_s_IndexError;
 static PyObject *__pyx_n_s_NaverBlog;
+static PyObject *__pyx_kp_s_Users_jeonhyojun_Desktop_python;
 static PyObject *__pyx_kp_s__12;
 static PyObject *__pyx_kp_s__15;
 static PyObject *__pyx_kp_s__22;
@@ -998,9 +998,10 @@ static PyObject *__pyx_n_s_contents;
 static PyObject *__pyx_n_s_contents_image;
 static PyObject *__pyx_n_s_countableComment;
 static PyObject *__pyx_n_s_crawler;
+static PyObject *__pyx_kp_s_crawlingData_data_json;
+static PyObject *__pyx_kp_s_crawlingData_urlList_txt;
 static PyObject *__pyx_n_s_d;
 static PyObject *__pyx_n_s_data;
-static PyObject *__pyx_kp_s_data_json;
 static PyObject *__pyx_n_s_date;
 static PyObject *__pyx_n_s_dateTime;
 static PyObject *__pyx_n_s_date_time;
@@ -1093,7 +1094,6 @@ static PyObject *__pyx_n_s_title;
 static PyObject *__pyx_n_s_total;
 static PyObject *__pyx_kp_s_total_2;
 static PyObject *__pyx_n_s_url;
-static PyObject *__pyx_kp_s_urlList_txt;
 static PyObject *__pyx_n_s_url_banner;
 static PyObject *__pyx_n_s_url_element;
 static PyObject *__pyx_n_s_url_list;
@@ -4765,11 +4765,11 @@ static __Pyx_StringTabEntry __pyx_string_tab[] = {
   {&__pyx_n_s_BlogPost_get_pc_post, __pyx_k_BlogPost_get_pc_post, sizeof(__pyx_k_BlogPost_get_pc_post), 0, 0, 1, 1},
   {&__pyx_n_s_BlogPost_redirect_url, __pyx_k_BlogPost_redirect_url, sizeof(__pyx_k_BlogPost_redirect_url), 0, 0, 1, 1},
   {&__pyx_n_s_BlogPost_write_data_as_dict, __pyx_k_BlogPost_write_data_as_dict, sizeof(__pyx_k_BlogPost_write_data_as_dict), 0, 0, 1, 1},
-  {&__pyx_kp_s_C_Users_pjs_Desktop_flask_test_v, __pyx_k_C_Users_pjs_Desktop_flask_test_v, sizeof(__pyx_k_C_Users_pjs_Desktop_flask_test_v), 0, 0, 1, 0},
   {&__pyx_n_s_Crawler, __pyx_k_Crawler, sizeof(__pyx_k_Crawler), 0, 0, 1, 1},
   {&__pyx_n_s_IOError, __pyx_k_IOError, sizeof(__pyx_k_IOError), 0, 0, 1, 1},
   {&__pyx_n_s_IndexError, __pyx_k_IndexError, sizeof(__pyx_k_IndexError), 0, 0, 1, 1},
   {&__pyx_n_s_NaverBlog, __pyx_k_NaverBlog, sizeof(__pyx_k_NaverBlog), 0, 0, 1, 1},
+  {&__pyx_kp_s_Users_jeonhyojun_Desktop_python, __pyx_k_Users_jeonhyojun_Desktop_python, sizeof(__pyx_k_Users_jeonhyojun_Desktop_python), 0, 0, 1, 0},
   {&__pyx_kp_s__12, __pyx_k__12, sizeof(__pyx_k__12), 0, 0, 1, 0},
   {&__pyx_kp_s__15, __pyx_k__15, sizeof(__pyx_k__15), 0, 0, 1, 0},
   {&__pyx_kp_s__22, __pyx_k__22, sizeof(__pyx_k__22), 0, 0, 1, 0},
@@ -4793,9 +4793,10 @@ static __Pyx_StringTabEntry __pyx_string_tab[] = {
   {&__pyx_n_s_contents_image, __pyx_k_contents_image, sizeof(__pyx_k_contents_image), 0, 0, 1, 1},
   {&__pyx_n_s_countableComment, __pyx_k_countableComment, sizeof(__pyx_k_countableComment), 0, 0, 1, 1},
   {&__pyx_n_s_crawler, __pyx_k_crawler, sizeof(__pyx_k_crawler), 0, 0, 1, 1},
+  {&__pyx_kp_s_crawlingData_data_json, __pyx_k_crawlingData_data_json, sizeof(__pyx_k_crawlingData_data_json), 0, 0, 1, 0},
+  {&__pyx_kp_s_crawlingData_urlList_txt, __pyx_k_crawlingData_urlList_txt, sizeof(__pyx_k_crawlingData_urlList_txt), 0, 0, 1, 0},
   {&__pyx_n_s_d, __pyx_k_d, sizeof(__pyx_k_d), 0, 0, 1, 1},
   {&__pyx_n_s_data, __pyx_k_data, sizeof(__pyx_k_data), 0, 0, 1, 1},
-  {&__pyx_kp_s_data_json, __pyx_k_data_json, sizeof(__pyx_k_data_json), 0, 0, 1, 0},
   {&__pyx_n_s_date, __pyx_k_date, sizeof(__pyx_k_date), 0, 0, 1, 1},
   {&__pyx_n_s_dateTime, __pyx_k_dateTime, sizeof(__pyx_k_dateTime), 0, 0, 1, 1},
   {&__pyx_n_s_date_time, __pyx_k_date_time, sizeof(__pyx_k_date_time), 0, 0, 1, 1},
@@ -4888,7 +4889,6 @@ static __Pyx_StringTabEntry __pyx_string_tab[] = {
   {&__pyx_n_s_total, __pyx_k_total, sizeof(__pyx_k_total), 0, 0, 1, 1},
   {&__pyx_kp_s_total_2, __pyx_k_total_2, sizeof(__pyx_k_total_2), 0, 0, 1, 0},
   {&__pyx_n_s_url, __pyx_k_url, sizeof(__pyx_k_url), 0, 0, 1, 1},
-  {&__pyx_kp_s_urlList_txt, __pyx_k_urlList_txt, sizeof(__pyx_k_urlList_txt), 0, 0, 1, 0},
   {&__pyx_n_s_url_banner, __pyx_k_url_banner, sizeof(__pyx_k_url_banner), 0, 0, 1, 1},
   {&__pyx_n_s_url_element, __pyx_k_url_element, sizeof(__pyx_k_url_element), 0, 0, 1, 1},
   {&__pyx_n_s_url_list, __pyx_k_url_list, sizeof(__pyx_k_url_list), 0, 0, 1, 1},
@@ -5187,7 +5187,7 @@ static int __Pyx_InitCachedConstants(void) {
   __pyx_tuple__39 = PyTuple_Pack(1, __pyx_n_s_self); if (unlikely(!__pyx_tuple__39)) {__pyx_filename = __pyx_f[0]; __pyx_lineno = 17; __pyx_clineno = __LINE__; goto __pyx_L1_error;}
   __Pyx_GOTREF(__pyx_tuple__39);
   __Pyx_GIVEREF(__pyx_tuple__39);
-  __pyx_codeobj__40 = (PyObject*)__Pyx_PyCode_New(1, 0, 1, 0, 0, __pyx_empty_bytes, __pyx_empty_tuple, __pyx_empty_tuple, __pyx_tuple__39, __pyx_empty_tuple, __pyx_empty_tuple, __pyx_kp_s_C_Users_pjs_Desktop_flask_test_v, __pyx_n_s_init, 17, __pyx_empty_bytes); if (unlikely(!__pyx_codeobj__40)) {__pyx_filename = __pyx_f[0]; __pyx_lineno = 17; __pyx_clineno = __LINE__; goto __pyx_L1_error;}
+  __pyx_codeobj__40 = (PyObject*)__Pyx_PyCode_New(1, 0, 1, 0, 0, __pyx_empty_bytes, __pyx_empty_tuple, __pyx_empty_tuple, __pyx_tuple__39, __pyx_empty_tuple, __pyx_empty_tuple, __pyx_kp_s_Users_jeonhyojun_Desktop_python, __pyx_n_s_init, 17, __pyx_empty_bytes); if (unlikely(!__pyx_codeobj__40)) {__pyx_filename = __pyx_f[0]; __pyx_lineno = 17; __pyx_clineno = __LINE__; goto __pyx_L1_error;}
 
   /* "NaverBlog.pyx":42
  *         self.external_banner = ''
@@ -5199,7 +5199,7 @@ static int __Pyx_InitCachedConstants(void) {
   __pyx_tuple__41 = PyTuple_Pack(11, __pyx_n_s_self, __pyx_n_s_url, __pyx_n_s_protocol, __pyx_n_s_url_element, __pyx_n_s_crawler, __pyx_n_s_web_data, __pyx_n_s_soup, __pyx_n_s_err_msg, __pyx_n_s_m_url, __pyx_n_s_pc_url, __pyx_n_s_comment_url); if (unlikely(!__pyx_tuple__41)) {__pyx_filename = __pyx_f[0]; __pyx_lineno = 42; __pyx_clineno = __LINE__; goto __pyx_L1_error;}
   __Pyx_GOTREF(__pyx_tuple__41);
   __Pyx_GIVEREF(__pyx_tuple__41);
-  __pyx_codeobj__42 = (PyObject*)__Pyx_PyCode_New(2, 0, 11, 0, 0, __pyx_empty_bytes, __pyx_empty_tuple, __pyx_empty_tuple, __pyx_tuple__41, __pyx_empty_tuple, __pyx_empty_tuple, __pyx_kp_s_C_Users_pjs_Desktop_flask_test_v, __pyx_n_s_redirect_url, 42, __pyx_empty_bytes); if (unlikely(!__pyx_codeobj__42)) {__pyx_filename = __pyx_f[0]; __pyx_lineno = 42; __pyx_clineno = __LINE__; goto __pyx_L1_error;}
+  __pyx_codeobj__42 = (PyObject*)__Pyx_PyCode_New(2, 0, 11, 0, 0, __pyx_empty_bytes, __pyx_empty_tuple, __pyx_empty_tuple, __pyx_tuple__41, __pyx_empty_tuple, __pyx_empty_tuple, __pyx_kp_s_Users_jeonhyojun_Desktop_python, __pyx_n_s_redirect_url, 42, __pyx_empty_bytes); if (unlikely(!__pyx_codeobj__42)) {__pyx_filename = __pyx_f[0]; __pyx_lineno = 42; __pyx_clineno = __LINE__; goto __pyx_L1_error;}
 
   /* "NaverBlog.pyx":90
  * 
@@ -5211,7 +5211,7 @@ static int __Pyx_InitCachedConstants(void) {
   __pyx_tuple__43 = PyTuple_Pack(8, __pyx_n_s_self, __pyx_n_s_url, __pyx_n_s_crawler, __pyx_n_s_web_data, __pyx_n_s_soup, __pyx_n_s_date_time, __pyx_n_s_tag, __pyx_n_s_e); if (unlikely(!__pyx_tuple__43)) {__pyx_filename = __pyx_f[0]; __pyx_lineno = 90; __pyx_clineno = __LINE__; goto __pyx_L1_error;}
   __Pyx_GOTREF(__pyx_tuple__43);
   __Pyx_GIVEREF(__pyx_tuple__43);
-  __pyx_codeobj__44 = (PyObject*)__Pyx_PyCode_New(2, 0, 8, 0, 0, __pyx_empty_bytes, __pyx_empty_tuple, __pyx_empty_tuple, __pyx_tuple__43, __pyx_empty_tuple, __pyx_empty_tuple, __pyx_kp_s_C_Users_pjs_Desktop_flask_test_v, __pyx_n_s_get_m_post, 90, __pyx_empty_bytes); if (unlikely(!__pyx_codeobj__44)) {__pyx_filename = __pyx_f[0]; __pyx_lineno = 90; __pyx_clineno = __LINE__; goto __pyx_L1_error;}
+  __pyx_codeobj__44 = (PyObject*)__Pyx_PyCode_New(2, 0, 8, 0, 0, __pyx_empty_bytes, __pyx_empty_tuple, __pyx_empty_tuple, __pyx_tuple__43, __pyx_empty_tuple, __pyx_empty_tuple, __pyx_kp_s_Users_jeonhyojun_Desktop_python, __pyx_n_s_get_m_post, 90, __pyx_empty_bytes); if (unlikely(!__pyx_codeobj__44)) {__pyx_filename = __pyx_f[0]; __pyx_lineno = 90; __pyx_clineno = __LINE__; goto __pyx_L1_error;}
 
   /* "NaverBlog.pyx":119
  * 
@@ -5223,7 +5223,7 @@ static int __Pyx_InitCachedConstants(void) {
   __pyx_tuple__45 = PyTuple_Pack(14, __pyx_n_s_self, __pyx_n_s_url, __pyx_n_s_crawler, __pyx_n_s_web_data, __pyx_n_s_soup, __pyx_n_s_dateTime, __pyx_n_s_widget, __pyx_n_s_w, __pyx_n_s_iframe, __pyx_n_s_contents, __pyx_n_s_contents_image, __pyx_n_s_image, __pyx_n_s_img, __pyx_n_s_e); if (unlikely(!__pyx_tuple__45)) {__pyx_filename = __pyx_f[0]; __pyx_lineno = 119; __pyx_clineno = __LINE__; goto __pyx_L1_error;}
   __Pyx_GOTREF(__pyx_tuple__45);
   __Pyx_GIVEREF(__pyx_tuple__45);
-  __pyx_codeobj__46 = (PyObject*)__Pyx_PyCode_New(2, 0, 14, 0, 0, __pyx_empty_bytes, __pyx_empty_tuple, __pyx_empty_tuple, __pyx_tuple__45, __pyx_empty_tuple, __pyx_empty_tuple, __pyx_kp_s_C_Users_pjs_Desktop_flask_test_v, __pyx_n_s_get_pc_post, 119, __pyx_empty_bytes); if (unlikely(!__pyx_codeobj__46)) {__pyx_filename = __pyx_f[0]; __pyx_lineno = 119; __pyx_clineno = __LINE__; goto __pyx_L1_error;}
+  __pyx_codeobj__46 = (PyObject*)__Pyx_PyCode_New(2, 0, 14, 0, 0, __pyx_empty_bytes, __pyx_empty_tuple, __pyx_empty_tuple, __pyx_tuple__45, __pyx_empty_tuple, __pyx_empty_tuple, __pyx_kp_s_Users_jeonhyojun_Desktop_python, __pyx_n_s_get_pc_post, 119, __pyx_empty_bytes); if (unlikely(!__pyx_codeobj__46)) {__pyx_filename = __pyx_f[0]; __pyx_lineno = 119; __pyx_clineno = __LINE__; goto __pyx_L1_error;}
 
   /* "NaverBlog.pyx":153
  * 
@@ -5235,7 +5235,7 @@ static int __Pyx_InitCachedConstants(void) {
   __pyx_tuple__47 = PyTuple_Pack(10, __pyx_n_s_self, __pyx_n_s_url, __pyx_n_s_crawler, __pyx_n_s_web_data, __pyx_n_s_soup, __pyx_n_s_comment_list, __pyx_n_s_comment, __pyx_n_s_d, __pyx_n_s_data, __pyx_n_s_dateTime); if (unlikely(!__pyx_tuple__47)) {__pyx_filename = __pyx_f[0]; __pyx_lineno = 153; __pyx_clineno = __LINE__; goto __pyx_L1_error;}
   __Pyx_GOTREF(__pyx_tuple__47);
   __Pyx_GIVEREF(__pyx_tuple__47);
-  __pyx_codeobj__48 = (PyObject*)__Pyx_PyCode_New(2, 0, 10, 0, 0, __pyx_empty_bytes, __pyx_empty_tuple, __pyx_empty_tuple, __pyx_tuple__47, __pyx_empty_tuple, __pyx_empty_tuple, __pyx_kp_s_C_Users_pjs_Desktop_flask_test_v, __pyx_n_s_get_comment, 153, __pyx_empty_bytes); if (unlikely(!__pyx_codeobj__48)) {__pyx_filename = __pyx_f[0]; __pyx_lineno = 153; __pyx_clineno = __LINE__; goto __pyx_L1_error;}
+  __pyx_codeobj__48 = (PyObject*)__Pyx_PyCode_New(2, 0, 10, 0, 0, __pyx_empty_bytes, __pyx_empty_tuple, __pyx_empty_tuple, __pyx_tuple__47, __pyx_empty_tuple, __pyx_empty_tuple, __pyx_kp_s_Users_jeonhyojun_Desktop_python, __pyx_n_s_get_comment, 153, __pyx_empty_bytes); if (unlikely(!__pyx_codeobj__48)) {__pyx_filename = __pyx_f[0]; __pyx_lineno = 153; __pyx_clineno = __LINE__; goto __pyx_L1_error;}
 
   /* "NaverBlog.pyx":183
  *             self.comment.append(d)
@@ -5247,7 +5247,7 @@ static int __Pyx_InitCachedConstants(void) {
   __pyx_tuple__49 = PyTuple_Pack(2, __pyx_n_s_self, __pyx_n_s_d); if (unlikely(!__pyx_tuple__49)) {__pyx_filename = __pyx_f[0]; __pyx_lineno = 183; __pyx_clineno = __LINE__; goto __pyx_L1_error;}
   __Pyx_GOTREF(__pyx_tuple__49);
   __Pyx_GIVEREF(__pyx_tuple__49);
-  __pyx_codeobj__50 = (PyObject*)__Pyx_PyCode_New(1, 0, 2, 0, 0, __pyx_empty_bytes, __pyx_empty_tuple, __pyx_empty_tuple, __pyx_tuple__49, __pyx_empty_tuple, __pyx_empty_tuple, __pyx_kp_s_C_Users_pjs_Desktop_flask_test_v, __pyx_n_s_write_data_as_dict, 183, __pyx_empty_bytes); if (unlikely(!__pyx_codeobj__50)) {__pyx_filename = __pyx_f[0]; __pyx_lineno = 183; __pyx_clineno = __LINE__; goto __pyx_L1_error;}
+  __pyx_codeobj__50 = (PyObject*)__Pyx_PyCode_New(1, 0, 2, 0, 0, __pyx_empty_bytes, __pyx_empty_tuple, __pyx_empty_tuple, __pyx_tuple__49, __pyx_empty_tuple, __pyx_empty_tuple, __pyx_kp_s_Users_jeonhyojun_Desktop_python, __pyx_n_s_write_data_as_dict, 183, __pyx_empty_bytes); if (unlikely(!__pyx_codeobj__50)) {__pyx_filename = __pyx_f[0]; __pyx_lineno = 183; __pyx_clineno = __LINE__; goto __pyx_L1_error;}
 
   /* "NaverBlog.pyx":205
  * 
@@ -5259,22 +5259,22 @@ static int __Pyx_InitCachedConstants(void) {
   __pyx_tuple__51 = PyTuple_Pack(5, __pyx_n_s_url, __pyx_n_s_blog, __pyx_n_s_pc_url, __pyx_n_s_m_url, __pyx_n_s_comment_url); if (unlikely(!__pyx_tuple__51)) {__pyx_filename = __pyx_f[0]; __pyx_lineno = 205; __pyx_clineno = __LINE__; goto __pyx_L1_error;}
   __Pyx_GOTREF(__pyx_tuple__51);
   __Pyx_GIVEREF(__pyx_tuple__51);
-  __pyx_codeobj__52 = (PyObject*)__Pyx_PyCode_New(1, 0, 5, 0, 0, __pyx_empty_bytes, __pyx_empty_tuple, __pyx_empty_tuple, __pyx_tuple__51, __pyx_empty_tuple, __pyx_empty_tuple, __pyx_kp_s_C_Users_pjs_Desktop_flask_test_v, __pyx_n_s_post_crawling, 205, __pyx_empty_bytes); if (unlikely(!__pyx_codeobj__52)) {__pyx_filename = __pyx_f[0]; __pyx_lineno = 205; __pyx_clineno = __LINE__; goto __pyx_L1_error;}
+  __pyx_codeobj__52 = (PyObject*)__Pyx_PyCode_New(1, 0, 5, 0, 0, __pyx_empty_bytes, __pyx_empty_tuple, __pyx_empty_tuple, __pyx_tuple__51, __pyx_empty_tuple, __pyx_empty_tuple, __pyx_kp_s_Users_jeonhyojun_Desktop_python, __pyx_n_s_post_crawling, 205, __pyx_empty_bytes); if (unlikely(!__pyx_codeobj__52)) {__pyx_filename = __pyx_f[0]; __pyx_lineno = 205; __pyx_clineno = __LINE__; goto __pyx_L1_error;}
 
   /* "NaverBlog.pyx":221
  *     total = time.time()
  * 
- *     with open('urlList.txt') as f:             # <<<<<<<<<<<<<<
+ *     with open('/crawlingData/urlList.txt') as f:             # <<<<<<<<<<<<<<
  *         url_list = f.read().split('\n')
  * 
  */
-  __pyx_tuple__53 = PyTuple_Pack(1, __pyx_kp_s_urlList_txt); if (unlikely(!__pyx_tuple__53)) {__pyx_filename = __pyx_f[0]; __pyx_lineno = 221; __pyx_clineno = __LINE__; goto __pyx_L1_error;}
+  __pyx_tuple__53 = PyTuple_Pack(1, __pyx_kp_s_crawlingData_urlList_txt); if (unlikely(!__pyx_tuple__53)) {__pyx_filename = __pyx_f[0]; __pyx_lineno = 221; __pyx_clineno = __LINE__; goto __pyx_L1_error;}
   __Pyx_GOTREF(__pyx_tuple__53);
   __Pyx_GIVEREF(__pyx_tuple__53);
 
   /* "NaverBlog.pyx":222
  * 
- *     with open('urlList.txt') as f:
+ *     with open('/crawlingData/urlList.txt') as f:
  *         url_list = f.read().split('\n')             # <<<<<<<<<<<<<<
  * 
  *     data = []
@@ -5286,7 +5286,7 @@ static int __Pyx_InitCachedConstants(void) {
   /* "NaverBlog.pyx":221
  *     total = time.time()
  * 
- *     with open('urlList.txt') as f:             # <<<<<<<<<<<<<<
+ *     with open('/crawlingData/urlList.txt') as f:             # <<<<<<<<<<<<<<
  *         url_list = f.read().split('\n')
  * 
  */
@@ -5313,7 +5313,7 @@ static int __Pyx_InitCachedConstants(void) {
  *         except IOError:
  *             with open('error.txt', 'a') as f:             # <<<<<<<<<<<<<<
  *                 f.write('[error] ' + url)
- *     with open('data.json', 'w') as f:
+ *     with open('/crawlingData/data.json', 'w') as f:
  */
   __pyx_tuple__58 = PyTuple_Pack(2, __pyx_kp_s_error_txt, __pyx_n_s_a); if (unlikely(!__pyx_tuple__58)) {__pyx_filename = __pyx_f[0]; __pyx_lineno = 234; __pyx_clineno = __LINE__; goto __pyx_L1_error;}
   __Pyx_GOTREF(__pyx_tuple__58);
@@ -5325,11 +5325,11 @@ static int __Pyx_InitCachedConstants(void) {
   /* "NaverBlog.pyx":236
  *             with open('error.txt', 'a') as f:
  *                 f.write('[error] ' + url)
- *     with open('data.json', 'w') as f:             # <<<<<<<<<<<<<<
+ *     with open('/crawlingData/data.json', 'w') as f:             # <<<<<<<<<<<<<<
  *         json.dump(data, f, ensure_ascii=False, indent=True)
  * 
  */
-  __pyx_tuple__60 = PyTuple_Pack(2, __pyx_kp_s_data_json, __pyx_n_s_w); if (unlikely(!__pyx_tuple__60)) {__pyx_filename = __pyx_f[0]; __pyx_lineno = 236; __pyx_clineno = __LINE__; goto __pyx_L1_error;}
+  __pyx_tuple__60 = PyTuple_Pack(2, __pyx_kp_s_crawlingData_data_json, __pyx_n_s_w); if (unlikely(!__pyx_tuple__60)) {__pyx_filename = __pyx_f[0]; __pyx_lineno = 236; __pyx_clineno = __LINE__; goto __pyx_L1_error;}
   __Pyx_GOTREF(__pyx_tuple__60);
   __Pyx_GIVEREF(__pyx_tuple__60);
   __pyx_tuple__61 = PyTuple_Pack(3, Py_None, Py_None, Py_None); if (unlikely(!__pyx_tuple__61)) {__pyx_filename = __pyx_f[0]; __pyx_lineno = 236; __pyx_clineno = __LINE__; goto __pyx_L1_error;}
@@ -5725,7 +5725,7 @@ PyMODINIT_FUNC PyInit_NaverBlog(void)
  * if __name__ == '__main__':
  *     total = time.time()             # <<<<<<<<<<<<<<
  * 
- *     with open('urlList.txt') as f:
+ *     with open('/crawlingData/urlList.txt') as f:
  */
     __pyx_t_2 = __Pyx_GetModuleGlobalName(__pyx_n_s_time); if (unlikely(!__pyx_t_2)) {__pyx_filename = __pyx_f[0]; __pyx_lineno = 219; __pyx_clineno = __LINE__; goto __pyx_L1_error;}
     __Pyx_GOTREF(__pyx_t_2);
@@ -5756,7 +5756,7 @@ PyMODINIT_FUNC PyInit_NaverBlog(void)
     /* "NaverBlog.pyx":221
  *     total = time.time()
  * 
- *     with open('urlList.txt') as f:             # <<<<<<<<<<<<<<
+ *     with open('/crawlingData/urlList.txt') as f:             # <<<<<<<<<<<<<<
  *         url_list = f.read().split('\n')
  * 
  */
@@ -5800,7 +5800,7 @@ PyMODINIT_FUNC PyInit_NaverBlog(void)
 
             /* "NaverBlog.pyx":222
  * 
- *     with open('urlList.txt') as f:
+ *     with open('/crawlingData/urlList.txt') as f:
  *         url_list = f.read().split('\n')             # <<<<<<<<<<<<<<
  * 
  *     data = []
@@ -5840,7 +5840,7 @@ PyMODINIT_FUNC PyInit_NaverBlog(void)
             /* "NaverBlog.pyx":221
  *     total = time.time()
  * 
- *     with open('urlList.txt') as f:             # <<<<<<<<<<<<<<
+ *     with open('/crawlingData/urlList.txt') as f:             # <<<<<<<<<<<<<<
  *         url_list = f.read().split('\n')
  * 
  */
@@ -6303,7 +6303,7 @@ PyMODINIT_FUNC PyInit_NaverBlog(void)
  *         except IOError:
  *             with open('error.txt', 'a') as f:             # <<<<<<<<<<<<<<
  *                 f.write('[error] ' + url)
- *     with open('data.json', 'w') as f:
+ *     with open('/crawlingData/data.json', 'w') as f:
  */
           /*with:*/ {
             __pyx_t_22 = __Pyx_PyObject_Call(__pyx_builtin_open, __pyx_tuple__58, NULL); if (unlikely(!__pyx_t_22)) {__pyx_filename = __pyx_f[0]; __pyx_lineno = 234; __pyx_clineno = __LINE__; goto __pyx_L23_except_error;}
@@ -6347,7 +6347,7 @@ PyMODINIT_FUNC PyInit_NaverBlog(void)
  *         except IOError:
  *             with open('error.txt', 'a') as f:
  *                 f.write('[error] ' + url)             # <<<<<<<<<<<<<<
- *     with open('data.json', 'w') as f:
+ *     with open('/crawlingData/data.json', 'w') as f:
  *         json.dump(data, f, ensure_ascii=False, indent=True)
  */
                   __pyx_t_22 = __Pyx_GetModuleGlobalName(__pyx_n_s_f); if (unlikely(!__pyx_t_22)) {__pyx_filename = __pyx_f[0]; __pyx_lineno = 235; __pyx_clineno = __LINE__; goto __pyx_L57_error;}
@@ -6393,7 +6393,7 @@ PyMODINIT_FUNC PyInit_NaverBlog(void)
  *         except IOError:
  *             with open('error.txt', 'a') as f:             # <<<<<<<<<<<<<<
  *                 f.write('[error] ' + url)
- *     with open('data.json', 'w') as f:
+ *     with open('/crawlingData/data.json', 'w') as f:
  */
                 }
                 __Pyx_XDECREF(__pyx_t_21); __pyx_t_21 = 0;
@@ -6510,7 +6510,7 @@ PyMODINIT_FUNC PyInit_NaverBlog(void)
     /* "NaverBlog.pyx":236
  *             with open('error.txt', 'a') as f:
  *                 f.write('[error] ' + url)
- *     with open('data.json', 'w') as f:             # <<<<<<<<<<<<<<
+ *     with open('/crawlingData/data.json', 'w') as f:             # <<<<<<<<<<<<<<
  *         json.dump(data, f, ensure_ascii=False, indent=True)
  * 
  */
@@ -6554,7 +6554,7 @@ PyMODINIT_FUNC PyInit_NaverBlog(void)
 
             /* "NaverBlog.pyx":237
  *                 f.write('[error] ' + url)
- *     with open('data.json', 'w') as f:
+ *     with open('/crawlingData/data.json', 'w') as f:
  *         json.dump(data, f, ensure_ascii=False, indent=True)             # <<<<<<<<<<<<<<
  * 
  *     print 'total ', time.time()-total
@@ -6590,7 +6590,7 @@ PyMODINIT_FUNC PyInit_NaverBlog(void)
             /* "NaverBlog.pyx":236
  *             with open('error.txt', 'a') as f:
  *                 f.write('[error] ' + url)
- *     with open('data.json', 'w') as f:             # <<<<<<<<<<<<<<
+ *     with open('/crawlingData/data.json', 'w') as f:             # <<<<<<<<<<<<<<
  *         json.dump(data, f, ensure_ascii=False, indent=True)
  * 
  */
