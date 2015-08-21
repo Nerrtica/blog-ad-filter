@@ -3,13 +3,16 @@
 <title> Blog Ad-Filter</title>
 <link rel=stylesheet type=text/css href="{{ url_for('static', filename='style.css') }}">
 
+
 {% block body %}
+</br>
+<p id=title><b>Blog AD-Filter</b></p>
+</br>
 
 <form action={{ url_for('crawling') }} method=post>
-	<dt> Blog AD-Filter
-	<dt> url : 
-	<dd> <input type=text name=url>
-	<dd><input type=submit value=Request>
+	
+	<dd> <input id=url type=text name=url placeholder="url">
+	<input id=search type=submit value=Search>
 </form>
 
 
