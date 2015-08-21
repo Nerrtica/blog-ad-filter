@@ -30,50 +30,61 @@ class performance_measure:
             f.write("\n")
         f.close()
 
-    def makeAllCombi (self):
-        for i in range(1, 2 ** len(self.featureList)):
-            selectedFeatureList = []
-            j = i
-            index = 0
-            while j > 0:
-                if j % 2 == 1:
-                    selectedFeatureList.append(self.featureList[index])
-                index += 1
-                j //= 2
-            selectedFeatureList.append(self.selectedFeatureList)
-            self.makeFile("{0}{1}{2}".format("temp/data", i, ".txt"), selectedFeatureList)
-
-    def svmCalculate (self):
-        SCCresult = []
-        for i in range(1, 2 ** len(self.featureList)):
-            print("order", i)
-            prob = svm_read_problem("{0}{1}{2}".format("temp/data", i, ".txt"))
+    def findBestAdd (self, selectedFeatureList, featureList):
+        performance = {}
+        for feature in featureList:
+            tempList = list(selectedFeatureList)
+            tempList.extend(self.selectedFeatureList)
+            tempList.append(feature)
+            self.makeFile("temp/data.txt", tempList)
+            prob = svm_read_problem("temp/data.txt")
             result = svm_train(prob[0], prob[1], self.SVMparameter)
-            SCCresult.append(result[1])
-        return SCCresult
+            performance[feature] = result[1]
+            print("feature " + feature + " added, SCC is " + str(result[1]))
+        return ( max(performance, key = performance.get) , max(performance.values()) )
 
-    def saveResult (self, SCCresult):
+    def findBestDel (self, featureList):
+        performance = {}
+        for feature in featureList:
+            tempList = list(featureList)
+            tempList.extend(self.selectedFeatureList)
+            tempList.remove(feature)
+            self.makeFile("temp/data.txt", tempList)
+            prob = svm_read_problem("temp/data.txt")
+            result = svm_train(prob[0], prob[1], self.SVMparameter)
+            performance[feature] = result[1]
+            print("feature " + feature + " deleted, SCC is " + str(result[1]))
+        return ( max(performance, key = performance.get), max(performance.values()) )
+
+    def saveResult (self, result):
         f = open(self.resultFileName, 'w')
-        while not SCCresult:
-            i = SCCresult.index(max(SCCresult)) + 1
-            result = []
-            selectedFeatureList = []
-            index = 0
-            while i > 0:
-                if i % 2 == 1:
-                    selectedFeatureList.append(self.featureList[index])
-                index += 1
-                i //= 2
-            result.append(set(selectedFeatureList))
-            result.append(SCCresult[i])
-            json.dump(selectedFeatureList, f)
+        for str in result:
+            f.write(str)
         f.close()
 
     def play (self):
-        self.makeAllCombi()
-        SCCresult = self.svmCalculate()
-        self.saveResult(SCCresult)
-        print("order", SCCresult.index(max(SCCresult)) + 1, "is optimum combination")
+        selectedFeatureList = []
+        featureList = list(self.featureList)
+        result = []
+        while 1 :
+            bestAdd = self.findBestAdd(selectedFeatureList, featureList)
+            selectedFeatureList.append(bestAdd[0])
+            featureList.remove(bestAdd[0])
+            result.append("selected feature list : {0}, SCC : {1}".format(selectedFeatureList, bestAdd[1]))
+            print("selected feature list : {0}, SCC : {1}".format(selectedFeatureList, bestAdd[1]))
+            if (len(featureList) == 0):
+                break
+            bestAdd = self.findBestAdd(selectedFeatureList, featureList)
+            selectedFeatureList.append(bestAdd[0])
+            featureList.remove(bestAdd[0])
+            result.append("selected feature list : {0}, SCC : {1}".format(selectedFeatureList, bestAdd[1]))
+            print("selected feature list : {0}, SCC : {1}".format(selectedFeatureList, bestAdd[1]))
+            bestDel = self.findBestDel(selectedFeatureList)
+            selectedFeatureList.remove(bestDel[0])
+            featureList.append(bestDel[0])
+            result.append("selected feature list : {0}, SCC : {1}".format(selectedFeatureList, bestDel[1]))
+            print("selected feature list : {0}, SCC : {1}".format(selectedFeatureList, bestDel[1]))
+        self.saveResult()
 
 # performance_measure class use example
 """
