@@ -6,10 +6,12 @@ from svmutil import *
 
 # read json format input, calculate optimum feature set combination and its accuracy in 10-fold cross validation
 class performance_measure:
-    def __init__ (self, parsed_json, featureList, SVMparameter):
+    def __init__ (self, parsed_json, selectedFeatureList, featureList, SVMparameter, resultFileName):
         self.parsed_json = parsed_json
+        self.selectedFeatureList = selectedFeatureList
         self.featureList = featureList
         self.SVMparameter = SVMparameter
+        self.resultFileName = resultFileName
 
     def makeFile (self, fileName, featureList):
         f = open(fileName, 'w')
@@ -38,6 +40,7 @@ class performance_measure:
                     selectedFeatureList.append(self.featureList[index])
                 index += 1
                 j //= 2
+            selectedFeatureList.append(self.selectedFeatureList)
             self.makeFile("{0}{1}{2}".format("temp/data", i, ".txt"), selectedFeatureList)
 
     def svmCalculate (self):
@@ -50,7 +53,7 @@ class performance_measure:
         return SCCresult
 
     def saveResult (self, SCCresult):
-        f = open("data/result.json", 'w')
+        f = open(self.resultFileName, 'w')
         while not SCCresult:
             i = SCCresult.index(max(SCCresult)) + 1
             result = []
@@ -74,7 +77,7 @@ class performance_measure:
 
 # performance_measure class use example
 """
-pm = performance_measure(parsed_json, featureList, SVMparameter)
+pm = performance_measure(parsed_json, featureList, SVMparameter, resultFileName)
 pm.play()
 """
 
