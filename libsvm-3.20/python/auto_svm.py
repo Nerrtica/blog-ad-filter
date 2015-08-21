@@ -92,7 +92,7 @@ class performance_measure:
             featureList.append(bestDel[0])
             result.append("selected feature list : {0}, correlation : {1}".format(selectedFeatureList, bestDel[1]))
             print("selected feature list : {0}, correlation : {1}".format(selectedFeatureList, bestDel[1]))
-        self.saveResult()
+        self.saveResult(result)
 
 # performance_measure class use example
 """
