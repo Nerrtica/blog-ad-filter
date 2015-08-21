@@ -31,30 +31,31 @@ app.config.from_object(__name__)
 # View function
 @app.route('/')
 def blog_search():
-    return render_template('blog_search.html')
+	return render_template('blog_search.html')
 
 @app.route('/crawling', methods=['GET', 'POST'])
 def crawling():
-    error = None
-    if request.method == 'POST':
-        url = request.form['url']
-        if url.startswith('http://') is False:
-            url = 'http://' + url
-	
-
-        crawler = NaverBlog.post_crawling(url)
-
-        
+	error = None
+	if request.method == 'POST':
+		url = request.form['url']
+	if url == '':
+		return 'please input url'
+	if url.startswith('http://') is False:
+		url = 'http://' + url
+		
+		crawler = NaverBlog.post_crawling(url)
+		
 	data = crawler.write_data_as_dict()
-    dataCreater = DataCreater()
-    dataCreater.loadData(data)
-    dataCreater.loadNgramData()
-    dataCreater.postAnalysis()
-    # return dataCreater.createDataSet()
-    predictor = predict_label(json.loads(dataCreater.createDataSet()), 
-        json.loads(dataCreater.getFeatureList()))
-    return str(predictor.play()[0])
-    # return data/Creater.createDataSet()\
+	dataCreater = DataCreater()
+	dataCreater.loadData(data)
+	dataCreater.loadNgramData()
+	dataCreater.postAnalysis()
+	# return dataCreater.createDataSet()
+	predictor = predict_label(json.loads(dataCreater.createDataSet()), 
+		json.loads(dataCreater.getFeatureList()))
+	score = str(predictor.play()[0])
+	return render_template('filter_result.html', url=url, adscore=score)
+	# return data/Creater.createDataSet()\
 
 if __name__ == '__main__':
-    app.run()
+	app.run()
