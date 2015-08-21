@@ -24,7 +24,7 @@ class performance_measure:
                 else:
                     f.write("0 ")
             else:
-                f.write("%d " % self.parsed_json[i]['label'])
+                f.write("%d " % round(float(self.parsed_json[i]['label'])))
             for feature in featureList:
                 f.write("%s " % self.parsed_json[i][feature])
             f.write("\n")

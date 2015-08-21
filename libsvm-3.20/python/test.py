@@ -47,7 +47,7 @@ for param in SVMparameter:
 mm = make_model(parsed_json, featureList)
 mm.play()
 
-parsed_json = readFile("data/testdata.json")
+parsed_json = readFile("data/testdata.json")ㅎㅎ
 
 pl = predict_label(parsed_json, featureList)
 result = pl.play()
