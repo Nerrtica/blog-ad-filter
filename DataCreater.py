@@ -36,7 +36,6 @@ class DataCreater:
 		self.postData.append(data)
 
 	def postAnalysis(self):
-		# self.postData = json.loads(post_jsonFormat)
 		t = MeCab.Tagger ('-d /usr/local/lib/mecab/dic/mecab-ko-dic')
 		try:
 			# 시간측정 start
@@ -165,7 +164,6 @@ class DataCreater:
 				else:
 					spontext_cnt = 0
 					for stc in post["content_sentenceList"]:
-						print(",".join([text["text"] for text in stc]))
 						spontext_cnt = spontext_cnt + self.stpm.sponTextCount(stc)
 						if spontext_cnt > 0:
 							post["sponser"] = "4:1"
@@ -179,7 +177,10 @@ class DataCreater:
 				post["word_cnt"] = "6:" + str(len(contents_text.split()))
 
 				# 문장내 평균 단어수
-				post["wordInSentence_avg"] = "7:" + str(len(contents_text.split())/len(post["content_sentenceList"]))
+				if len(post["content_sentenceList"]) != 0:
+					post["wordInSentence_avg"] = "7:" + str(len(contents_text.split())/len(post["content_sentenceList"]))
+				else:
+					post["wordInSentence_avg"] = "7:0"
 
 				# 외부 위젯 배너 수
 				post["external_banner_cnt"] = "8:" + str(post["external_banner"])
@@ -297,52 +298,18 @@ class DataCreater:
 
 
 	def createFeatureNgram(self):
-		f_feature_title_unigram = open("./result/feature_title_unigram.txt", "w")
+		f_feature_title_unigram = open("./data/feature_title_unigram.txt", "w")
 		f_feature_title_unigram.write(" ".join(self.feature_title_unigram))
 		f_feature_title_unigram.close()
 
-		f_feature_content_unigram = open("./result/feature_content_unigram.txt", "w")
+		f_feature_content_unigram = open("./data/feature_content_unigram.txt", "w")
 		f_feature_content_unigram.write(" ".join(self.feature_content_unigram))
 		f_feature_content_unigram.close()
 
-		f_feature_content_bigram = open("./result/feature_content_bigram.txt", "w")
+		f_feature_content_bigram = open("./data/feature_content_bigram.txt", "w")
 		f_feature_content_bigram.write(" ".join(self.feature_content_bigram))
 		f_feature_content_bigram.close()
 
-		f_feature_content_trigram = open("./result/feature_content_trigram.txt", "w")
+		f_feature_content_trigram = open("./data/feature_content_trigram.txt", "w")
 		f_feature_content_trigram.write(" ".join(self.feature_content_trigram))
 		f_feature_content_trigram.close()
-
-
-
-
-# # In[5]:
-
-# dataCreater = DataCreater()
-
-
-# # In[6]:
-
-# f_in = open("./crawlingData/data2.json", "r")
-# dataCreater.loadData(f_in.read())
-# dataCreater.postAnalysis()
-# print("*****텍스트 분석 및 Feature 추가 완료*****")
-# print("# 텍스트 분석 소요시간 : {} sec".format(dataCreater.time_textAnalysis))
-# print("# Feature 추가 소요시간 : {} sec".format(dataCreater.time_addFeature))
-# dataCreater.loadLabelData()
-# print("*****Label 추가 완료*****")
-# print("# Label 추가 소요시간 : {} sec".format(dataCreater.time_loadLabelData))
-# f_out = open("./result/data.json", "w")
-# f_out.write(dataCreater.createDataSet())
-# print("create json file")
-
-# f_in.close()
-# f_out.close()
-
-
-# # In[7]:
-
-# f_featureList = open("./result/featureList.json", "w")
-# f_featureList.write(dataCreater.getFeatureList())
-# print("create list of feature file")
-
