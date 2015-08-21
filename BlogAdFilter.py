@@ -43,7 +43,7 @@ def crawling():
 	if url.startswith('http://') is False:
 		url = 'http://' + url
 		
-		crawler = NaverBlog.post_crawling(url)
+	crawler = NaverBlog.post_crawling(url)
 		
 	data = crawler.write_data_as_dict()
 	dataCreater = DataCreater()
