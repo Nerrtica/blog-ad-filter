@@ -1,0 +1,47 @@
+<!doctype html>
+
+<title> Blog Ad-Filter</title>
+<link rel=stylesheet type=text/css href="{{ url_for('static', filename='style.css') }}">
+
+
+{% block body %}
+</br>
+<p id=title><b>Blog AD-Filter</b></p>
+</br>
+
+<iframe src = {{url}} width=50% height:expression(document.body.clientHeight-60) >
+</iframe>
+</br>
+</br>
+
+<div id="circle1">
+	<div id="score" >
+		{{adscore}}
+	</div>
+</div>
+</br>
+</br>
+</br>
+</br>
+</br>
+</br>
+</br>
+</br>
+</br>
+</br>
+</br>
+<div>
+	<p id=feed_back_ment>당신이 판단한 광고 지수는?</p>
+	<p>(사용자의 피드백은 성능 개선에 도움이 됩니다.)</p>
+</div>
+
+</br>
+<form id=feed_back_button>
+	<input type="button" id=circle_button1>
+	<input type="button" id=circle_button2>
+	<input type="button" id=circle_button3>
+	<input type="button" id=circle_button4>
+	<input type="button" id=circle_button5>
+</form>
+
+{% endblock %}
