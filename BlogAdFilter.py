@@ -51,9 +51,12 @@ def crawling():
 	dataCreater.loadNgramData()
 	dataCreater.postAnalysis()
 	# return dataCreater.createDataSet()
-	predictor = predict_label(json.loads(dataCreater.createDataSet()), 
-		json.loads(dataCreater.getFeatureList()))
-	score = str(predictor.play()[0])
+	data = json.loads(dataCreater.createDataSet())
+	if data[0]["label"] == "5":
+		score = "5"
+	else:
+		predictor = predict_label(data, json.loads(dataCreater.getFeatureList()))
+		score = str(predictor.play()[0])
 	return render_template('filter_result.html', url=url, adscore=score)
 	# return data/Creater.createDataSet()\
 

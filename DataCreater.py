@@ -235,7 +235,10 @@ class DataCreater:
 
 
 				# label = 0
-				post["label"] = "0"
+				if post["sponser"] == "4:1":
+					post["label"] = "5"
+				else:
+					post["label"] = "0"
 
 				# 시간측정
 				self.time_addFeature = time.time() - self.time_addFeature
