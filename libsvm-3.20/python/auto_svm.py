@@ -39,8 +39,12 @@ class performance_measure:
             self.makeFile("temp/data.txt", tempList)
             prob = svm_read_problem("temp/data.txt")
             result = svm_train(prob[0], prob[1], self.SVMparameter)
-            performance[feature] = result[1]
-            print("feature " + feature + " added, SCC is " + str(result[1]))
+            if "-s 3" in self.SVMparameter or "-s 4" in self.SVMparameter:
+                performance[feature] = result[1]
+                print("feature " + feature + " added, SCC is " + str(result[1]))
+            else:
+                performance[feature] = result
+                print("feature " + feature + " added, ACC is " + str(result))
         return ( max(performance, key = performance.get) , max(performance.values()) )
 
     def findBestDel (self, featureList):
@@ -52,8 +56,12 @@ class performance_measure:
             self.makeFile("temp/data.txt", tempList)
             prob = svm_read_problem("temp/data.txt")
             result = svm_train(prob[0], prob[1], self.SVMparameter)
-            performance[feature] = result[1]
-            print("feature " + feature + " deleted, SCC is " + str(result[1]))
+            if "-s 3" in self.SVMparameter or "-s 4" in self.SVMparameter:
+                performance[feature] = result[1]
+                print("feature " + feature + " deleted, SCC is " + str(result[1]))
+            else:
+                performance[feature] = result
+                print("feature " + feature + " deleted, ACC is " + str(result))
         return ( max(performance, key = performance.get), max(performance.values()) )
 
     def saveResult (self, result):
@@ -70,20 +78,20 @@ class performance_measure:
             bestAdd = self.findBestAdd(selectedFeatureList, featureList)
             selectedFeatureList.append(bestAdd[0])
             featureList.remove(bestAdd[0])
-            result.append("selected feature list : {0}, SCC : {1}".format(selectedFeatureList, bestAdd[1]))
-            print("selected feature list : {0}, SCC : {1}".format(selectedFeatureList, bestAdd[1]))
+            result.append("selected feature list : {0}, correlation : {1}".format(selectedFeatureList, bestAdd[1]))
+            print("selected feature list : {0}, correlation : {1}".format(selectedFeatureList, bestAdd[1]))
             if (len(featureList) == 0):
                 break
             bestAdd = self.findBestAdd(selectedFeatureList, featureList)
             selectedFeatureList.append(bestAdd[0])
             featureList.remove(bestAdd[0])
-            result.append("selected feature list : {0}, SCC : {1}".format(selectedFeatureList, bestAdd[1]))
-            print("selected feature list : {0}, SCC : {1}".format(selectedFeatureList, bestAdd[1]))
+            result.append("selected feature list : {0}, correlation : {1}".format(selectedFeatureList, bestAdd[1]))
+            print("selected feature list : {0}, correlation : {1}".format(selectedFeatureList, bestAdd[1]))
             bestDel = self.findBestDel(selectedFeatureList)
             selectedFeatureList.remove(bestDel[0])
             featureList.append(bestDel[0])
-            result.append("selected feature list : {0}, SCC : {1}".format(selectedFeatureList, bestDel[1]))
-            print("selected feature list : {0}, SCC : {1}".format(selectedFeatureList, bestDel[1]))
+            result.append("selected feature list : {0}, correlation : {1}".format(selectedFeatureList, bestDel[1]))
+            print("selected feature list : {0}, correlation : {1}".format(selectedFeatureList, bestDel[1]))
         self.saveResult()
 
 # performance_measure class use example
