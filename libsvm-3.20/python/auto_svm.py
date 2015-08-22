@@ -1,6 +1,8 @@
 __author__ = 'Nerrtica'
 
 import json
+import time
+import os
 from svmutil import *
 # Read data in LIBSVM format
 
@@ -101,10 +103,11 @@ pm.play()
 """
 
 class make_model:
-    def __init__ (self, parsed_json, featureList):
+    def __init__ (self, parsed_json, featureList, path):
+
         self.parsed_json = parsed_json
         self.featureList = featureList
-        self.modelFileName = "model/model.txt"
+        self.modelFileName = path + "/model.txt"
         self.SVMparameter = "-s 0 -t 0 -q"
 
     def makeFile (self):
@@ -143,7 +146,12 @@ class predict_label:
     def __init__ (self, parsed_json, featureList):
         self.parsed_json = parsed_json
         self.featureList = featureList
-        self.modelFileName = "model/model.txt"
+
+        MODELRECORD = "./model/model_record.txt"
+        f_MODELRECORD = open(MODELRECORD, "r")
+        recent_MODELRECORD = f_MODELRECORD.read().splitlines()[-1]
+        f_MODELRECORD.close()
+        self.modelFileName = "model/" + recent_MODELRECORD + "/model.txt"
 
     def makeFile (self):
         f = open("temp/data.txt", 'w')

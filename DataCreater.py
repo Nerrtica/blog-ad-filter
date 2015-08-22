@@ -274,19 +274,25 @@ class DataCreater:
 		self.time_loadLabelData = time.time() - self.time_loadLabelData
 	
 	def loadNgramData(self):
-		f_feature_title_unigram = open("./data/feature_title_unigram.txt", "r")
+		DATARECORD = "./data/data_record.txt"
+		f_DATARECORD = open(DATARECORD, "r")
+		recent_DATARECORD = f_DATARECORD.read().splitlines()[-1]
+		f_DATARECORD.close()
+
+
+		f_feature_title_unigram = open("./data/" + recent_DATARECORD + "/" + "feature_title_unigram.txt", "r")
 		self.feature_title_unigram = f_feature_title_unigram.read().split()
 		f_feature_title_unigram.close()
 
-		f_feature_content_unigram = open("./data/feature_content_unigram.txt", "r")
+		f_feature_content_unigram = open("./data/" + recent_DATARECORD + "/" + "feature_content_unigram.txt", "r")
 		self.feature_content_unigram = f_feature_content_unigram.read().split()
 		f_feature_content_unigram.close()
 
-		f_feature_content_bigram = open("./data/feature_content_bigram.txt", "r")
+		f_feature_content_bigram = open("./data/" + recent_DATARECORD + "/" + "feature_content_bigram.txt", "r")
 		self.feature_content_bigram = f_feature_content_bigram.read().split()
 		f_feature_content_bigram.close()
 
-		f_feature_content_trigram = open("./data/feature_content_trigram.txt", "r")
+		f_feature_content_trigram = open("./data/" + recent_DATARECORD + "/" + "feature_content_trigram.txt", "r")
 		self.feature_content_trigram = f_feature_content_trigram.read().split()
 		f_feature_content_trigram.close()
 
@@ -301,18 +307,23 @@ class DataCreater:
 
 
 	def createFeatureNgram(self):
-		f_feature_title_unigram = open("./data/feature_title_unigram.txt", "w")
+		DATARECORD = "./data/data_record.txt"
+		f_DATARECORD = open(DATARECORD, "r")
+		recent_DATARECORD = f_DATARECORD.read().splitlines()[-1]
+		f_DATARECORD.close()
+
+		f_feature_title_unigram = open("./data/" + recent_DATARECORD + "/feature_title_unigram.txt", "w")
 		f_feature_title_unigram.write(" ".join(self.feature_title_unigram))
 		f_feature_title_unigram.close()
 
-		f_feature_content_unigram = open("./data/feature_content_unigram.txt", "w")
+		f_feature_content_unigram = open("./data/" + recent_DATARECORD + "/feature_content_unigram.txt", "w")
 		f_feature_content_unigram.write(" ".join(self.feature_content_unigram))
 		f_feature_content_unigram.close()
 
-		f_feature_content_bigram = open("./data/feature_content_bigram.txt", "w")
+		f_feature_content_bigram = open("./data/" + recent_DATARECORD + "/eature_content_bigram.txt", "w")
 		f_feature_content_bigram.write(" ".join(self.feature_content_bigram))
 		f_feature_content_bigram.close()
 
-		f_feature_content_trigram = open("./data/feature_content_trigram.txt", "w")
+		f_feature_content_trigram = open("./data/" + recent_DATARECORD + "/feature_content_trigram.txt", "w")
 		f_feature_content_trigram.write(" ".join(self.feature_content_trigram))
 		f_feature_content_trigram.close()
