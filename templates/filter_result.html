@@ -2,7 +2,12 @@
 
 <title> Blog Ad-Filter</title>
 <link rel=stylesheet type=text/css href="{{ url_for('static', filename='style.css') }}">
-
+<script>
+	function submitUserScore(num) {
+		document.getElementById('feedbackForm').user_score.value = num;
+		document.getElementById('feedbackForm').submit();
+	}
+</script>
 
 {% block body %}
 </br>
@@ -36,12 +41,13 @@
 </div>
 
 </br>
-<form id=feed_back_button>
-	<input type="button" id=circle_button1>
-	<input type="button" id=circle_button2>
-	<input type="button" id=circle_button3>
-	<input type="button" id=circle_button4>
-	<input type="button" id=circle_button5>
+<form id=feedbackForm action={{ url_for('feedback') }} method=post >
+	<input type="hidden" id=user_score>
+	<input type="button" id=circle_button1 onclick="submitUserScore(1);">
+	<input type="button" id=circle_button2 onclick="submitUserScore(2);">
+	<input type="button" id=circle_button3 onclick="submitUserScore(3);">
+	<input type="button" id=circle_button4 onclick="submitUserScore(4);">
+	<input type="button" id=circle_button5 onclick="submitUserScore(5);">
 </form>
 
 {% endblock %}

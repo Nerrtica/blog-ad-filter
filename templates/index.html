@@ -1,0 +1,63 @@
+{% extends "layout.html" %}
+{% block body %}
+<link rel=stylesheet type=text/css href="{{ url_for('static', filename='style.css') }}">
+<script type="text/javascript">
+	var temp = 'temp'
+	$(function() {
+		$( "#dialog" ).dialog({
+			autoOpen: false,
+			resizable: false,
+		});
+
+		var submit_form = function(e) {
+			$.get($SCRIPT_ROOT + '/_extractData', {
+				url: $('input[name="url"]').val()
+			}, function(data){
+				temp = data;
+				$.get($SCRIPT_ROOT + '/_predict', {
+					data: temp
+				}, function(result){
+					$('#result').text(result);
+					$("#dialog").dialog("open");
+				});
+			});
+			return false;
+		};
+
+
+		$( "#search" ).click(function() {
+			console.log("click")
+			submit_form();
+		});
+
+		$('input[type=text]').bind('keydown', function(e) {
+			if (e.keyCode == 13) {
+				submit_form();
+			}
+		});
+
+		$('input[name=url]').focus();
+	})
+</script>
+<div id="dialog" title="Ad-Score">
+	<span id="result"></span></br>
+	<div>
+		<p id="feed_back_ment">당신이 판단한 광고 지수는?</p>
+		<p>(사용자의 피드백은 성능 개선에 도움이 됩니다.)</p>
+	</div>
+		<input type="hidden" id=user_score>
+		<input type="button" id=circle_button1 onclick="submitUserScore(1);">
+		<input type="button" id=circle_button2 onclick="submitUserScore(2);">
+		<input type="button" id=circle_button3 onclick="submitUserScore(3);">
+		<input type="button" id=circle_button4 onclick="submitUserScore(4);">
+		<input type="button" id=circle_button5 onclick="submitUserScore(5);">
+</div>
+</br>
+<p id="title"><b>Blog AD-Filter</b></p>
+</br>
+<dd> <input id="url" type="text" name="url" placeholder="url">
+	<button id="search">Search</button>
+</dd>
+
+
+{% endblock %}
