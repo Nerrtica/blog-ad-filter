@@ -24,33 +24,71 @@
 			return false;
 		};
 
+		var userFeedBack = function(e) {
+			$.get($SCRIPT_ROOT + '/_addToDB', {
+				user_score : $("#user_score").val(),
+				data: temp
+			}, function(result){
+				$('#feedbackResult').text(result);
+			});
+			return false;
+		};
+
 
 		$( "#search" ).click(function() {
 			console.log("click")
 			submit_form();
 		});
 
-		$('input[type=text]').bind('keydown', function(e) {
-			if (e.keyCode == 13) {
-				submit_form();
-			}
+		$( "#circle_button1" ).click(function() {
+			console.log("userscore : 1")
+			$("#user_score").attr('value',"1");
+			console.log($('input[name="user_score"]').val())
+			userFeedBack();
 		});
+		$( "#circle_button2" ).click(function() {
+			console.log("userscore : 2")
+			$("#user_score").attr('value',"2");
+			userFeedBack();
+		});
+		$( "#circle_button3" ).click(function() {
+			console.log("userscore : 3")
+			$("#user_score").attr('value',"3");
+			userFeedBack();
+		});
+		$( "#circle_button4" ).click(function() {
+			console.log("userscore : 4")
+			$("#user_score").attr('value',"4");
+			userFeedBack();
+		});
+		$( "#circle_button5" ).click(function() {
+			console.log("userscore : 5")
+			$("#user_score").attr('value',"5");
+			userFeedBack();
+		});
+
+		// $('input[type=text]').bind('keydown', function(e) {
+		// 	if (e.keyCode == 13) {
+		// 		submit_form();
+		// 	}
+		// });
 
 		$('input[name=url]').focus();
 	})
 </script>
-<div id="dialog" title="Ad-Score">
+<div id="dialog" title="결과">
 	<span id="result"></span></br>
 	<div>
-		<p id="feed_back_ment">당신이 판단한 광고 지수는?</p>
-		<p>(사용자의 피드백은 성능 개선에 도움이 됩니다.)</p>
+		<p1>당신이 판단한 광고 지수는?</p1>
+		<p2>(사용자의 피드백은 성능 개선에 도움이 됩니다.)</p2>
 	</div>
-		<input type="hidden" id=user_score>
-		<input type="button" id=circle_button1 onclick="submitUserScore(1);">
-		<input type="button" id=circle_button2 onclick="submitUserScore(2);">
-		<input type="button" id=circle_button3 onclick="submitUserScore(3);">
-		<input type="button" id=circle_button4 onclick="submitUserScore(4);">
-		<input type="button" id=circle_button5 onclick="submitUserScore(5);">
+		<input type="hidden" id="user_score">
+		<input type="button" id="circle_button1">
+		<input type="button" id="circle_button2">
+		<input type="button" id="circle_button3">
+		<input type="button" id="circle_button4">
+		<input type="button" id="circle_button5"></br>
+		<span id="feedbackResult"></span>
 </div>
 </br>
 <p id="title"><b>Blog AD-Filter</b></p>

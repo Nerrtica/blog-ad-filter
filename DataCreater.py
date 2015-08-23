@@ -33,7 +33,10 @@ class DataCreater:
 
 
 	def loadData(self, data):
-		self.postData.append(data)
+		if type(data).__name__ == "dict":
+			self.postData.append(data)
+		elif type(data).__name__ == "list":
+			self.postData = data
 
 	def postAnalysis(self):
 		t = MeCab.Tagger ('-d /usr/local/lib/mecab/dic/mecab-ko-dic')
@@ -237,8 +240,19 @@ class DataCreater:
 				# label = 0
 				if post["sponser"] == "4:1":
 					post["label"] = "5"
+					if "labelList" not in post:
+						post["labelList"] = ["5"]
 				else:
-					post["label"] = "0"
+					if "labelList" not in post:
+						post["labelList"] = []
+
+					if len(post["labelList"]) > 0:
+						post["label"] = sum([float(x) for x in post["labelList"]])/len(post["labelList"])
+					else:
+						if post["label"] in ["1", "1.5", "2", "2.5", "3", "3.5", "4", "4.5", "5"]:
+							post["labelList"].append(post["label"])
+						else:
+							post["label"] = "0"
 
 				# 시간측정
 				self.time_addFeature = time.time() - self.time_addFeature
@@ -249,9 +263,9 @@ class DataCreater:
 
 
 
-	def loadLabelData(self):
+	def loadLabelData(self, path):
 		self.time_loadLabelData = time.time()
-		f = open("./crawlingData/label.csv", "r")
+		f = open(path, "r")
 		loadLabel = f.read().splitlines()
 		f.close()
 		labelList = []
@@ -264,6 +278,7 @@ class DataCreater:
 			for i,labelData in enumerate(labelList):
 				if post["blogId"] in labelData["url"] and post["logNo"] in labelData["url"]:
 					post["label"] = labelData["label"]
+					post["labelList"] = labe
 					labelList.pop(i)
 					print("({}/{})[3 step : label 추가완료] {}_{}".format(index+1, len(self.postData), post["blogId"], post["logNo"]))
 					break
