@@ -114,7 +114,30 @@ def predict():
 @app.route('/_addToDB')
 def addToDB():
 	data = request.args.get('data', 0, type=str)
-	user_score = request.args.get('user_score', 0, type=str)
+	user_score = str(request.args.get('user_score', 0, type=str))
+	print("**********\n\n\n\n" + type(user_score).__name__ + "**********\n\n" + user_score + "\n\n")
+	if user_score not in ["1", "2", "3", "4", "5"]:
+		return "fail : invalid data"
+
+	f = open("./db/userFeedBack.json", "r")
+	
+	originData = json.loads(f.read())
+	newData_json = json.loads(data)
+	newData_json["label"] = user_score
+	f.close()
+
+	for ori in originData:
+		if ori["blogId"] == newData_json["blogId"] and ori["logNo"] == newData_json["logNo"]:
+			ori["labelList"].append(newData_json["label"])
+			if len(ori["labelList"]) > 1:
+				ori["label"] = str(sum([int(x) for x in ori["labelList"]])/len(ori["labelList"]))
+			break
+
+	f = open("./db/userFeedBack.json", "w+")
+	originData.append(newData_json)
+
+	json.dump(originData, f, ensure_ascii=False, indent=4)
+	f.close()
 	return "success"
 
 
