@@ -89,7 +89,8 @@ def autoUpdate():
 	f_featureList = open(DATAPATH + "/featureList.json", "w")
 	f_featureList.write(dataCreater.getFeatureList())
 	print("create list of feature file")
-
+	dataCreater.createFeatureNgram()
+	print("create featureData file")
 	# make model temp
 	print("** start to make model **")
 	f_data = open(DATAPATH + "/" + DATAFILE, "r")

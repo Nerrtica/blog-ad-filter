@@ -124,17 +124,20 @@ def addToDB():
 	originData = json.loads(f.read())
 	newData_json = json.loads(data)
 	newData_json["label"] = user_score
+	newData_json["labelList"].append(newData_json["label"])
 	f.close()
-
+	overlabCheck = False
 	for ori in originData:
 		if ori["blogId"] == newData_json["blogId"] and ori["logNo"] == newData_json["logNo"]:
 			ori["labelList"].append(newData_json["label"])
 			if len(ori["labelList"]) > 1:
-				ori["label"] = str(sum([int(x) for x in ori["labelList"]])/len(ori["labelList"]))
+				ori["label"] = str(sum([int(x) for x in ori["labelList"]])/float(len(ori["labelList"])))
+			overlabCheck = True
 			break
 
 	f = open("./db/userFeedBack.json", "w+")
-	originData.append(newData_json)
+	if overlabCheck == False:
+		originData.append(newData_json)
 
 	json.dump(originData, f, ensure_ascii=False, indent=4)
 	f.close()

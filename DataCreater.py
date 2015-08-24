@@ -155,7 +155,11 @@ class DataCreater:
 					post["include_map"] = "2:0"
 				
 				# 이미지 갯수(임시)
-				post["img_cnt"] = "3:" + str(post["img_cnt"])
+				if type(post["img_cnt"]).__name__ == "int":
+					post["img_cnt"] = "3:" + str(post["img_cnt"])
+				else:
+					if ":" not in post["img_cnt"]:
+						post["img_cnt"] = "3:" + str(post["img_cnt"])
 				
 
 
@@ -247,8 +251,10 @@ class DataCreater:
 						post["labelList"] = []
 
 					if len(post["labelList"]) > 0:
-						post["label"] = sum([float(x) for x in post["labelList"]])/len(post["labelList"])
+						post["label"] = str(sum([float(x) for x in post["labelList"]])/len(post["labelList"]))
 					else:
+						if "label" not in post:
+							post["label"] = "0"
 						if post["label"] in ["1", "1.5", "2", "2.5", "3", "3.5", "4", "4.5", "5"]:
 							post["labelList"].append(post["label"])
 						else:
