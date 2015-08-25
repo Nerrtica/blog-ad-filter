@@ -30,7 +30,7 @@ class sponTextFeatureMaker:
                        [{"tag":"NNG", "text":"시식"}, {"tag":"XSN", "text":"권"}],
                        [{"tag":"NNG", "text":"체험"}, {"tag":"XSN", "text":"권"}]
                       ]
-        text_adverb= [{"tag":"NNG", "text":"무료"},
+        text_free= [{"tag":"NNG", "text":"무료"},
                     {"tag":"NNG", "text":"무상"}
                     ]
         text_verb_get = [{"tag":"NNG", "text":"제공"},
@@ -44,10 +44,10 @@ class sponTextFeatureMaker:
         text_write = [{"tag":"NNG", "text":"작성"},
                    {"tag":"NNP", "text":"포스팅"}
                   ]
-        text_receive = [{"tag":"VV", "text":"받"}, 
-                        {"tag":"VV", "text":"얻"}
-                       ]
-        text_not = [{"tag":"VX", "text":"않"}, {"tag":"MAG", "text":"못"}]
+        # text_receive = [{"tag":"VV", "text":"받"}, 
+        #                 {"tag":"VV", "text":"얻"}
+        #                ]
+        # text_not = [{"tag":"VX", "text":"않"}, {"tag":"MAG", "text":"못"}]
         
         text_visit = ["방문"]
 
@@ -60,7 +60,7 @@ class sponTextFeatureMaker:
 
 
         for obj in [text["text"] for text in text_object]:
-            for adv in [text["text"] for text in text_adverb]:
+            for adv in [text["text"] for text in text_free]:
                 for v_get in [text["text"] for text in text_verb_get]:
                     if [obj, adv, v_get] not in self.pattern:
                         self.pattern.append([obj, adv, v_get])
@@ -68,25 +68,25 @@ class sponTextFeatureMaker:
 
         for tic in text_ticket:
             ticket = tic[0]["text"] + tic[1]["text"]
-            for adv in [text["text"] for text in text_adverb]:
+            for adv in [text["text"] for text in text_free]:
                 for v_get in [text["text"] for text in text_verb_get]:
                     if [ticket, adv, v_get] not in self.pattern:
                         self.pattern.append([obj, adv, v_get])
 
 
-        for adv in [text["text"] for text in text_adverb]:
+        for adv in [text["text"] for text in text_free]:
             for obj in [text["text"] for text in text_object]:
                 for v_get in [text["text"] for text in text_verb_get]:
                     if [adv, obj, v_get] not in self.pattern:
                         self.pattern.append([adv, obj, v_get])
 
         for obj in [text["text"] for text in text_object]:
-            for adv in [text["text"] for text in text_adverb]:
+            for adv in [text["text"] for text in text_free]:
                 for v_do in [text["text"] for text in text_verb_do]:
                     if [obj, adv, v_do] not in self.pattern:
                         self.pattern.append([obj, adv, v_do])
 
-        for adv in [text["text"] for text in text_adverb]:
+        for adv in [text["text"] for text in text_free]:
             for obj in [text["text"] for text in text_object]:
                 for v_do in [text["text"] for text in text_verb_do]:
                     if [adv, obj, v_do] not in self.pattern:
@@ -94,12 +94,12 @@ class sponTextFeatureMaker:
 
         for tic in text_ticket:
             ticket = tic[0]["text"] + tic[1]["text"]
-            for adv in [text["text"] for text in text_adverb]:
+            for adv in [text["text"] for text in text_free]:
                 for v_get in [text["text"] for text in text_verb_get]:
                     if [ticket, adv, v_get] not in self.pattern:
                         self.pattern.append([ticket, adv, v_get])
 
-        for adv in [text["text"] for text in text_adverb]:
+        for adv in [text["text"] for text in text_free]:
             for tic in text_ticket:
                 ticket = tic[0]["text"] + tic[1]["text"]
                 for v_get in [text["text"] for text in text_verb_get]:

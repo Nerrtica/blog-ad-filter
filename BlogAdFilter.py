@@ -36,45 +36,45 @@ app.config.from_object(__name__)
 # def blog_search():
 # 	return render_template('blog_search.html')
 
-@app.route('/crawling', methods=['GET', 'POST'])
-def crawling():
-	error = None
-	if request.method == 'POST':
-		url = request.form['url']
-	if url == '':
-		return 'please input url'
-	if url.startswith('http://') is False:
-		url = 'http://' + url
+# @app.route('/crawling', methods=['GET', 'POST'])
+# def crawling():
+# 	error = None
+# 	if request.method == 'POST':
+# 		url = request.form['url']
+# 	if url == '':
+# 		return 'please input url'
+# 	if url.startswith('http://') is False:
+# 		url = 'http://' + url
 		
-	crawler = NaverBlog.post_crawling(url)
+# 	crawler = NaverBlog.post_crawling(url)
 		
-	data = crawler.write_data_as_dict()
-	dataCreater = DataCreater()
-	dataCreater.loadData(data)
-	dataCreater.loadNgramData()
-	dataCreater.postAnalysis()
-	# return dataCreater.createDataSet()
-	data = json.loads(dataCreater.createDataSet())
-	if data[0]["label"] == "5":
-		score = "5"
-	else:
-		predictor = predict_label(data, json.loads(dataCreater.getFeatureList()))
-		score = str(predictor.play()[0])
-	return render_template('filter_result.html', url=url, adscore=score)
-	# return data/Creater.createDataSet()\
+# 	data = crawler.write_data_as_dict()
+# 	dataCreater = DataCreater()
+# 	dataCreater.loadData(data)
+# 	dataCreater.loadNgramData()
+# 	dataCreater.postAnalysis()
+# 	# return dataCreater.createDataSet()
+# 	data = json.loads(dataCreater.createDataSet())
+# 	if data[0]["label"] == "5":
+# 		score = "5"
+# 	else:
+# 		predictor = predict_label(data, json.loads(dataCreater.getFeatureList()))
+# 		score = str(predictor.play()[0])
+# 	return render_template('filter_result.html', url=url, adscore=score)
+# 	# return data/Creater.createDataSet()\
 
-@app.route('/feedback', methods=['GET', 'POST'])
-def feedback():
-	error = None
-	if request.method == 'POST':
-		user_score = str(request.form['user_score'])
-	if user_score in ["1", "2", "3", "4", "5"]:
-		return '잘못된 데이터 입력'
+# @app.route('/feedback', methods=['GET', 'POST'])
+# def feedback():
+# 	error = None
+# 	if request.method == 'POST':
+# 		user_score = str(request.form['user_score'])
+# 	if user_score in ["1", "2", "3", "4", "5"]:
+# 		return '잘못된 데이터 입력'
 	
 
 
-	return render_template('feedback_ok.html', score=score)
-	# return data/Creater.createDataSet()
+# 	return render_template('feedback_ok.html', score=score)
+# 	# return data/Creater.createDataSet()
 
 
 # Ajax Ver
@@ -147,6 +147,10 @@ def addToDB():
 @app.route('/')
 def index():
 	return render_template('index.html')
+
+@app.route('/main')
+def main():
+	return render_template('main.html')
 
 
 if __name__ == '__main__':

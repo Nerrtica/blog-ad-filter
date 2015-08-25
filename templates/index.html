@@ -3,13 +3,26 @@
 <link rel=stylesheet type=text/css href="{{ url_for('static', filename='style.css') }}">
 <script type="text/javascript">
 	var temp = 'temp'
+
+
+
+
+
+
 	$(function() {
 		$( "#dialog" ).dialog({
 			autoOpen: false,
 			resizable: false,
+			height: 600,
+      		width: 600
 		});
 
 		var submit_form = function(e) {
+			$("#circle_button1").attr('type',"button");
+			$("#circle_button2").attr('type',"button");
+			$("#circle_button3").attr('type',"button");
+			$("#circle_button4").attr('type',"button");
+			$("#circle_button5").attr('type',"button");
 			$.get($SCRIPT_ROOT + '/_extractData', {
 				url: $('input[name="url"]').val()
 			}, function(data){
@@ -17,19 +30,45 @@
 				$.get($SCRIPT_ROOT + '/_predict', {
 					data: temp
 				}, function(result){
-					$('#result').text(result);
+					if(result == "1.0"){
+						$('#result').attr('src',"{{ url_for('static', filename='1.png') }}");
+					}
+					else if(result == "2.0"){
+						$('#result').attr('src',"{{ url_for('static', filename='2.png') }}");
+					}
+					else if(result == "3.0"){
+						$('#result').attr('src',"{{ url_for('static', filename='3.png') }}");
+					}
+					else if(result == "4.0"){
+						$('#result').attr('src',"{{ url_for('static', filename='4.png') }}");
+					}
+					else if(result == "5.0"){
+						$('#result').attr('src',"{{ url_for('static', filename='5.png') }}");
+					}
 					$("#dialog").dialog("open");
+					redirectIframe();
 				});
 			});
 			return false;
 		};
 
+		var redirectIframe = function(e) {
+			$("#blogViewer").attr('src',$("#url").val());
+		}
+
 		var userFeedBack = function(e) {
+			$("#dialog").dialog( "close" );
+			$("#circle_button1").attr('type',"hidden");
+			$("#circle_button2").attr('type',"hidden");
+			$("#circle_button3").attr('type',"hidden");
+			$("#circle_button4").attr('type',"hidden");
+			$("#circle_button5").attr('type',"hidden");
 			$.get($SCRIPT_ROOT + '/_addToDB', {
 				user_score : $("#user_score").val(),
 				data: temp
 			}, function(result){
 				$('#feedbackResult').text(result);
+				// $("#dialog").dialog("close");
 			});
 			return false;
 		};
@@ -76,26 +115,44 @@
 		$('input[name=url]').focus();
 	})
 </script>
-<div id="dialog" title="결과">
-	<span id="result"></span></br>
-	<div>
-		<p1>당신이 판단한 광고 지수는?</p1>
-		<p2>(사용자의 피드백은 성능 개선에 도움이 됩니다.)</p2>
+<div id="dialog" title="Ad-Score">
+<br>
+	<img src="{{ url_for('static', filename='1.png') }}" id="result" width="300px" height="300px"></br>
+	<div id="ment">
+		<br><br>당신이 판단한 광고 지수는?<br>
+		(사용자의 피드백은 성능 개선에 도움이 됩니다.)<br><br>
 	</div>
 		<input type="hidden" id="user_score">
-		<input type="button" id="circle_button1">
-		<input type="button" id="circle_button2">
-		<input type="button" id="circle_button3">
-		<input type="button" id="circle_button4">
-		<input type="button" id="circle_button5"></br>
+		<img src="{{ url_for('static', filename='1_big.png') }}" id="circle_button1">
+		<img src="{{ url_for('static', filename='2_big.png') }}" id="circle_button2">
+		<img src="{{ url_for('static', filename='3_big.png') }}" id="circle_button3">
+		<img src="{{ url_for('static', filename='4_big.png') }}" id="circle_button4">
+		<img src="{{ url_for('static', filename='5_big.png') }}" id="circle_button5">
+		</br>
 		<span id="feedbackResult"></span>
 </div>
-</br>
-<p id="title"><b>Blog AD-Filter</b></p>
-</br>
-<dd> <input id="url" type="text" name="url" placeholder="url">
-	<button id="search">Search</button>
-</dd>
+<table width="100%" height="100%" align="center">
+	<tr>
+		<th scope="row" width="70%" height="100%"><iframe id="blogViewer" src="/main" style="display: block; height: 99vh; width: 70vw;"></iframe></th>
+		<th scope="row" width="30%" height="100%">
+			<table width="90%" height="300px" align="center">
+				<tr height="20px">
+					<p id="title">Blog AD-Filter</p>
+				</tr>
+				<tr height="60px">
+					<th scope="row" width="70%" height="100%"><input id="url" type="text" name="url" placeholder="url"></th>
+					<th scope="row" width="30%" height="100%"<button id="search">Search</button></th>
+				</tr>
+				<tr height="220px">
+					<th colspan="2"><br><br><img src="{{ url_for('static', filename='guide.png') }}" width="70%"></th>
+				</tr>
+			</table>
+		</th>
+	</tr>
+</table>
+
+
+
 
 
 {% endblock %}
