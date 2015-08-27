@@ -1,8 +1,4 @@
 [
-    "text_len",
-    "include_map",
-    "img_cnt",
-    "sponser",
     "f_title_unigram",
     "f_content_unigram",
     "f_content_bigram",
@@ -12,5 +8,8 @@
     "wordInSentence_avg",
     "external_banner_cnt",
     "comment_cnt",
-    "tag_cnt"
+    "tag_cnt",
+    "text_len",
+    "include_map",
+    "img_cnt"
 ]

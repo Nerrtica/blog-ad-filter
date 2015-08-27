@@ -1,0 +1,41 @@
+
+selected feature list : ['sponser'], correlation : 50.970873786407765
+selected feature list : ['sponser', 'include_map'], correlation : 59.06148867313916
+selected feature list : ['sponser'], correlation : 50.970873786407765
+selected feature list : ['sponser', 'include_map'], correlation : 59.06148867313916
+selected feature list : ['sponser', 'include_map', 'img_cnt'], correlation : 59.06148867313916
+selected feature list : ['sponser', 'include_map'], correlation : 59.06148867313916
+selected feature list : ['sponser', 'include_map', 'wordInSentence_avg'], correlation : 59.06148867313916
+selected feature list : ['sponser', 'include_map', 'wordInSentence_avg', 'tag_cnt'], correlation : 59.06148867313916
+selected feature list : ['sponser', 'include_map', 'wordInSentence_avg'], correlation : 59.06148867313916
+selected feature list : ['sponser', 'include_map', 'wordInSentence_avg', 'tag_cnt'], correlation : 59.06148867313916
+selected feature list : ['sponser', 'include_map', 'wordInSentence_avg', 'tag_cnt', 'external_banner_cnt'], correlation : 59.22330097087379
+selected feature list : ['sponser', 'include_map', 'wordInSentence_avg', 'tag_cnt'], correlation : 59.06148867313916
+selected feature list : ['sponser', 'include_map', 'wordInSentence_avg', 'tag_cnt', 'comment_cnt'], correlation : 59.06148867313916
+selected feature list : ['sponser', 'include_map', 'wordInSentence_avg', 'tag_cnt', 'comment_cnt', 'img_cnt'], correlation : 59.06148867313916
+selected feature list : ['sponser', 'include_map', 'wordInSentence_avg', 'comment_cnt', 'img_cnt'], correlation : 59.06148867313916
+selected feature list : ['sponser', 'include_map', 'wordInSentence_avg', 'comment_cnt', 'img_cnt', 'external_banner_cnt'], correlation : 59.385113268608414
+selected feature list : ['sponser', 'include_map', 'wordInSentence_avg', 'comment_cnt', 'img_cnt', 'external_banner_cnt', 'tag_cnt'], correlation : 59.22330097087379
+selected feature list : ['sponser', 'include_map', 'wordInSentence_avg', 'comment_cnt', 'img_cnt', 'external_banner_cnt'], correlation : 59.22330097087379
+selected feature list : ['sponser', 'include_map', 'wordInSentence_avg', 'comment_cnt', 'img_cnt', 'external_banner_cnt', 'sentence_cnt'], correlation : 59.22330097087379
+selected feature list : ['sponser', 'include_map', 'wordInSentence_avg', 'comment_cnt', 'img_cnt', 'external_banner_cnt', 'sentence_cnt', 'tag_cnt'], correlation : 59.06148867313916
+selected feature list : ['sponser', 'include_map', 'wordInSentence_avg', 'img_cnt', 'external_banner_cnt', 'sentence_cnt', 'tag_cnt'], correlation : 59.385113268608414
+selected feature list : ['sponser', 'include_map', 'wordInSentence_avg', 'img_cnt', 'external_banner_cnt', 'sentence_cnt', 'tag_cnt', 'word_cnt'], correlation : 59.22330097087379
+selected feature list : ['sponser', 'include_map', 'wordInSentence_avg', 'img_cnt', 'external_banner_cnt', 'sentence_cnt', 'tag_cnt', 'word_cnt', 'comment_cnt'], correlation : 59.06148867313916
+selected feature list : ['sponser', 'include_map', 'wordInSentence_avg', 'img_cnt', 'external_banner_cnt', 'sentence_cnt', 'word_cnt', 'comment_cnt'], correlation : 59.22330097087379
+selected feature list : ['sponser', 'include_map', 'wordInSentence_avg', 'img_cnt', 'external_banner_cnt', 'sentence_cnt', 'word_cnt', 'comment_cnt', 'tag_cnt'], correlation : 59.06148867313916
+selected feature list : ['sponser', 'include_map', 'wordInSentence_avg', 'img_cnt', 'external_banner_cnt', 'sentence_cnt', 'word_cnt', 'comment_cnt', 'tag_cnt', 'f_title_unigram'], correlation : 57.28155339805825
+selected feature list : ['sponser', 'include_map', 'wordInSentence_avg', 'img_cnt', 'external_banner_cnt', 'sentence_cnt', 'word_cnt', 'comment_cnt', 'tag_cnt'], correlation : 59.06148867313916
+selected feature list : ['sponser', 'include_map', 'wordInSentence_avg', 'img_cnt', 'external_banner_cnt', 'sentence_cnt', 'word_cnt', 'comment_cnt', 'tag_cnt', 'f_title_unigram'], correlation : 56.310679611650485
+selected feature list : ['sponser', 'include_map', 'wordInSentence_avg', 'img_cnt', 'external_banner_cnt', 'sentence_cnt', 'word_cnt', 'comment_cnt', 'tag_cnt', 'f_title_unigram', 'text_len'], correlation : 56.14886731391586
+selected feature list : ['sponser', 'include_map', 'wordInSentence_avg', 'img_cnt', 'external_banner_cnt', 'sentence_cnt', 'word_cnt', 'comment_cnt', 'f_title_unigram', 'text_len'], correlation : 59.385113268608414
+selected feature list : ['sponser', 'include_map', 'wordInSentence_avg', 'img_cnt', 'external_banner_cnt', 'sentence_cnt', 'word_cnt', 'comment_cnt', 'f_title_unigram', 'text_len', 'tag_cnt'], correlation : 57.44336569579288
+selected feature list : ['sponser', 'include_map', 'wordInSentence_avg', 'img_cnt', 'external_banner_cnt', 'sentence_cnt', 'word_cnt', 'comment_cnt', 'f_title_unigram', 'text_len', 'tag_cnt', 'f_content_bigram'], correlation : 53.398058252427184
+selected feature list : ['sponser', 'include_map', 'wordInSentence_avg', 'img_cnt', 'external_banner_cnt', 'sentence_cnt', 'word_cnt', 'comment_cnt', 'f_title_unigram', 'text_len', 'tag_cnt'], correlation : 59.06148867313916
+selected feature list : ['sponser', 'include_map', 'wordInSentence_avg', 'img_cnt', 'external_banner_cnt', 'sentence_cnt', 'word_cnt', 'comment_cnt', 'f_title_unigram', 'text_len', 'tag_cnt', 'f_content_bigram'], correlation : 54.045307443365694
+selected feature list : ['sponser', 'include_map', 'wordInSentence_avg', 'img_cnt', 'external_banner_cnt', 'sentence_cnt', 'word_cnt', 'comment_cnt', 'f_title_unigram', 'text_len', 'tag_cnt', 'f_content_bigram', 'f_content_unigram'], correlation : 51.94174757281554
+selected feature list : ['sponser', 'include_map', 'wordInSentence_avg', 'img_cnt', 'external_banner_cnt', 'sentence_cnt', 'word_cnt', 'comment_cnt', 'f_title_unigram', 'tag_cnt', 'f_content_bigram', 'f_content_unigram'], correlation : 54.85436893203884
+selected feature list : ['sponser', 'include_map', 'wordInSentence_avg', 'img_cnt', 'external_banner_cnt', 'sentence_cnt', 'word_cnt', 'comment_cnt', 'f_title_unigram', 'tag_cnt', 'f_content_bigram', 'f_content_unigram', 'f_content_trigram'], correlation : 54.20711974110032
+selected feature list : ['sponser', 'include_map', 'wordInSentence_avg', 'img_cnt', 'external_banner_cnt', 'sentence_cnt', 'word_cnt', 'comment_cnt', 'f_title_unigram', 'tag_cnt', 'f_content_bigram', 'f_content_unigram', 'f_content_trigram', 'text_len'], correlation : 49.676375404530745
+selected feature list : ['sponser', 'include_map', 'wordInSentence_avg', 'img_cnt', 'external_banner_cnt', 'sentence_cnt', 'word_cnt', 'comment_cnt', 'f_title_unigram', 'tag_cnt', 'f_content_bigram', 'f_content_unigram', 'text_len'], correlation : 53.72168284789644
+selected feature list : ['sponser', 'include_map', 'wordInSentence_avg', 'img_cnt', 'external_banner_cnt', 'sentence_cnt', 'word_cnt', 'comment_cnt', 'f_title_unigram', 'tag_cnt', 'f_content_bigram', 'f_content_unigram', 'text_len', 'f_content_trigram'], correlation : 51.13268608414239
