@@ -23,6 +23,7 @@
 			$("#circle_button3").attr('type',"button");
 			$("#circle_button4").attr('type',"button");
 			$("#circle_button5").attr('type',"button");
+			redirectIframe();
 			$.get($SCRIPT_ROOT + '/_extractData', {
 				url: $('input[name="url"]').val()
 			}, function(data){
@@ -30,6 +31,7 @@
 				$.get($SCRIPT_ROOT + '/_predict', {
 					data: temp
 				}, function(result){
+					console.log(result)
 					if(result == "1.0"){
 						$('#result').attr('src',"{{ url_for('static', filename='1.png') }}");
 					}
@@ -46,7 +48,6 @@
 						$('#result').attr('src',"{{ url_for('static', filename='5.png') }}");
 					}
 					$("#dialog").dialog("open");
-					redirectIframe();
 				});
 			});
 			return false;

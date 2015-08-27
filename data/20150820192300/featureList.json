@@ -2,7 +2,6 @@
     "text_len",
     "include_map",
     "img_cnt",
-    "sponser",
     "f_title_unigram",
     "f_content_unigram",
     "f_content_bigram",

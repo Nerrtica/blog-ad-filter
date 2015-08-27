@@ -104,10 +104,10 @@ def predict():
 	data_list = []
 	data_list.append(data)
 	if data_list[0]["label"] == "5":
-		score = "5"
+		score = "5.0"
 	else:
 		predictor = predict_label(data_list, featureList)
-		score = str(predictor.play()[0])
+		score = str(round(predictor.play()[0]))
 	return score
 
 
