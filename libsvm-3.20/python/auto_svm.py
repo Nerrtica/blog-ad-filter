@@ -78,20 +78,22 @@ class performance_measure:
             bestAdd = self.findBestAdd(selectedFeatureList, featureList)
             selectedFeatureList.append(bestAdd[0])
             featureList.remove(bestAdd[0])
-            result.append("selected feature list : {0}, correlation : {1}".format(selectedFeatureList, bestAdd[1]))
+            result.append("selected feature list : {0}, correlation : {1}\n".format(selectedFeatureList, bestAdd[1]))
             print("selected feature list : {0}, correlation : {1}".format(selectedFeatureList, bestAdd[1]))
             if (len(featureList) == 0):
                 break
+            """
             bestAdd = self.findBestAdd(selectedFeatureList, featureList)
             selectedFeatureList.append(bestAdd[0])
             featureList.remove(bestAdd[0])
-            result.append("selected feature list : {0}, correlation : {1}".format(selectedFeatureList, bestAdd[1]))
+            result.append("selected feature list : {0}, correlation : {1}\n".format(selectedFeatureList, bestAdd[1]))
             print("selected feature list : {0}, correlation : {1}".format(selectedFeatureList, bestAdd[1]))
             bestDel = self.findBestDel(selectedFeatureList)
             selectedFeatureList.remove(bestDel[0])
             featureList.append(bestDel[0])
-            result.append("selected feature list : {0}, correlation : {1}".format(selectedFeatureList, bestDel[1]))
+            result.append("selected feature list : {0}, correlation : {1}\n".format(selectedFeatureList, bestDel[1]))
             print("selected feature list : {0}, correlation : {1}".format(selectedFeatureList, bestDel[1]))
+            """
         self.saveResult(result)
 
 # performance_measure class use example

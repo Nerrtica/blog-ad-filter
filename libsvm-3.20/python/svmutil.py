@@ -2,6 +2,7 @@
 
 import os
 import sys
+import json
 from svm import *
 from svm import __all__ as svm_all
 
@@ -154,6 +155,9 @@ def svm_train(arg1, arg2=None, arg3=None):
 		l, nr_fold = prob.l, param.nr_fold
 		target = (c_double * l)()
 		libsvm.svm_cross_validation(prob, param, nr_fold, target)
+
+		target = rule(target, l)
+
 		ACC, MSE, SCC = evaluations(prob.y[:l], target[:l])
 		if param.svm_type in [EPSILON_SVR, NU_SVR]:
 			print("Cross Validation Mean squared error = %g" % MSE)
@@ -259,4 +263,13 @@ def svm_predict(y, x, m, options=""):
 
 	return pred_labels, (ACC, MSE, SCC), pred_values
 
+def rule (target, l):
+	f = open("data/data.json", 'r')
+	parsed_json = json.loads(f.read())
+	f.close()
 
+	for i in range(l):
+		if parsed_json[i]['sponser'] == "4:1":
+			target[i] = 5
+
+	return target
