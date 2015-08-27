@@ -51,7 +51,7 @@ class sponTextFeatureMaker:
         
         text_visit = ["방문"]
 
-        self.text_except = [{"tag":"NNG", "text":"후"}]
+        self.text_except = [{"tag":"NNG", "text":"후"}, {"tag":"NNG", "text":"실제"}]
 
 
 #         pattern setting
