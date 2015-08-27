@@ -1,0 +1,13 @@
+selected feature list : ['f_content_bigram'], correlation : 0.680896728994902
+selected feature list : ['f_content_bigram', 'img_cnt'], correlation : 0.6912565785084224
+selected feature list : ['f_content_bigram', 'img_cnt', 'tag_cnt'], correlation : 0.7003118616759151
+selected feature list : ['f_content_bigram', 'img_cnt', 'tag_cnt', 'text_len'], correlation : 0.6975400455925793
+selected feature list : ['f_content_bigram', 'img_cnt', 'tag_cnt', 'text_len', 'f_title_unigram'], correlation : 0.6887114117945802
+selected feature list : ['f_content_bigram', 'img_cnt', 'tag_cnt', 'text_len', 'f_title_unigram', 'f_content_unigram'], correlation : 0.6908119569476784
+selected feature list : ['f_content_bigram', 'img_cnt', 'tag_cnt', 'text_len', 'f_title_unigram', 'f_content_unigram', 'f_content_trigram'], correlation : 0.6938580282753762
+selected feature list : ['f_content_bigram', 'img_cnt', 'tag_cnt', 'text_len', 'f_title_unigram', 'f_content_unigram', 'f_content_trigram', 'sentence_cnt'], correlation : 0.6958402800951194
+selected feature list : ['f_content_bigram', 'img_cnt', 'tag_cnt', 'text_len', 'f_title_unigram', 'f_content_unigram', 'f_content_trigram', 'sentence_cnt', 'comment_cnt'], correlation : 0.6956182195049089
+selected feature list : ['f_content_bigram', 'img_cnt', 'tag_cnt', 'text_len', 'f_title_unigram', 'f_content_unigram', 'f_content_trigram', 'sentence_cnt', 'comment_cnt', 'word_cnt'], correlation : 0.6947674048136917
+selected feature list : ['f_content_bigram', 'img_cnt', 'tag_cnt', 'text_len', 'f_title_unigram', 'f_content_unigram', 'f_content_trigram', 'sentence_cnt', 'comment_cnt', 'word_cnt', 'include_map'], correlation : 0.6912678122606274
+selected feature list : ['f_content_bigram', 'img_cnt', 'tag_cnt', 'text_len', 'f_title_unigram', 'f_content_unigram', 'f_content_trigram', 'sentence_cnt', 'comment_cnt', 'word_cnt', 'include_map', 'external_banner_cnt'], correlation : 0.6882809049361278
+selected feature list : ['f_content_bigram', 'img_cnt', 'tag_cnt', 'text_len', 'f_title_unigram', 'f_content_unigram', 'f_content_trigram', 'sentence_cnt', 'comment_cnt', 'word_cnt', 'include_map', 'external_banner_cnt', 'wordInSentence_avg'], correlation : 0.6757833215559553

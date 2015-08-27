@@ -1,10 +1,13 @@
+# -*- coding:utf8 -*-
 
 from bs4 import BeautifulSoup
 
+import urllib
 import time
 import json
 import sys
 import os
+import re
 
 import AdFilter
 import Crawler
@@ -110,10 +113,11 @@ class BlogPost(object):
         self.contents = soup('div', {'class':'post_ct'})[0].text.strip()
 
         # tag
-        tag = [ (e.text, e.find('a')['href']) for e in soup('div', {'class':'post_tag'})[0]('li')]
-        for e in tag:
-            self.tag[e[0].encode('utf8')] = e[1].encode('utf8')
-        del tag
+        if len(soup('div', {'class':'post_tag'})) > 0:
+            tag = [ (e.text, e.find('a')['href']) for e in soup('div', {'class':'post_tag'})[0]('li')]
+            for e in tag:
+                self.tag[e[0].encode('utf8')] = e[1].encode('utf8')
+            del tag
 
         
     def get_pc_post(self, url):
@@ -200,7 +204,53 @@ class BlogPost(object):
         }
         return d
 
+def post_url_list(query, date):
+    list_search_url = 'http://cafeblog.search.naver.com/search.naver?'
+    parameter = {
+            'where':'post',
+            'sm':'tab_pge',
+            'query':query,
+            'st':'date',
+            'date_option':'6',      # 0, 1, 2, 3, 4, 5, 6
+            'date_from':date,
+            'date_to':date,
+            'dup_remove':'1',
+            'post_blogurl':'blog.naver.com',
+            'post_blogurl_without':'',
+            'srchby':'all',
+            'nso':'so%3Add%2Cp%3Afrom20150710to20150710',
+            'ie':'utf8',
+            'start':'1'
+    }
+    
+    url = list_search_url + urllib.urlencode(parameter)
+    print url
+    crawler = Crawler.Crawler()
+    web_data = crawler.get_page(url)
+    
+    soup = BeautifulSoup(web_data, 'html.parser')
+    max_page = soup('span', {'class':'title_num'})[0].text.split('/')[1]
+    
+    max_page = int(re.sub(u'[^0-9]', u'',max_page))
+    max_page = max_page/10*10 + 1
 
+    if max_page > 1000:
+        max_page = 1000
+
+    post_list = []
+    for start in xrange(1, max_page+1, 10):
+        parameter['start'] = str(start)
+        url = list_search_url + urllib.urlencode(parameter)
+        web_data = crawler.get_page(url)
+
+        soup = BeautifulSoup(web_data, 'html.parser')
+        post_list += list(soup('li', {'class':'sh_blog_top'}))
+
+    url_list = []
+    for post in post_list:
+        url_list.append(post.find('a')['href'])
+
+    return url_list
 
 def post_crawling(url):
     
@@ -218,8 +268,8 @@ def post_crawling(url):
 if __name__ == '__main__':
     total = time.time()
 
-    with open('/crawlingData/urlList.txt') as f:
-        url_list = f.read().split('\n')
+    url_list = post_url_list('맛집', '20150826')
+    
 
     data = []
 
@@ -233,7 +283,7 @@ if __name__ == '__main__':
         except IOError:
             with open('error.txt', 'a') as f:
                 f.write('[error] ' + url)
-    with open('/crawlingData/data.json', 'w') as f:
+    with open('./crawlingData/data.json', 'w') as f:
         json.dump(data, f, ensure_ascii=False, indent=True)
 
     print 'total ', time.time()-total

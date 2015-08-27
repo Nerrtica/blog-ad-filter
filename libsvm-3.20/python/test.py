@@ -8,7 +8,6 @@ def readFile (jsonFileName):
     f.close()
     return parsed_json
 
-"""
 def calculCorrelation (person):
     ty = []
     pv = []
@@ -17,16 +16,15 @@ def calculCorrelation (person):
         ty.append(int(temp[0]))
         pv.append(int(temp[1]))
     result = evaluations(ty, pv)
-    print(result[1])
-    print(result[2])
+    print("ACC = {0}".format(result[0]))
+    print("MSE = {0}".format(result[1]))
+    print("SCC = {0}".format(result[2]))
     return result
-"""
 
 parsed_json = readFile("data/data.json")
 featureList = readFile("data/featureList.json")
 
 data = Data(parsed_json, featureList)
-
 
 """
 person = readFile("data/person.json")
@@ -35,8 +33,9 @@ calculCorrelation(person)
 """
 
 
+
 # SVMparameter = ["-s 3 -t 0 -v 10 -q", "-s 3 -t 2 -v 10 -q", "-s 0 -t 0 -v 10 -q", "-s 0 -t 2 -v 10 -q", "-s 2 -t 0 -v 10 -q"]
-SVMparameter = ["-s 0 -t 0 -v 10 -q", "-s 0 -t 2 -v 10 -q"]
+SVMparameter = ["-s 3 -t 0 -v 10 -q", "-s 3 -t 2 -v 10 -q"]
 for param in SVMparameter:
     resultFileName = "data/result" + param + ".txt"
     pm = performance_measure(parsed_json, [], featureList, param, resultFileName)

@@ -1,0 +1,13 @@
+selected feature list : ['f_content_unigram'], correlation : 0.625322147611102
+selected feature list : ['f_content_unigram', 'wordInSentence_avg'], correlation : 0.6336054080404621
+selected feature list : ['f_content_unigram', 'wordInSentence_avg', 'external_banner_cnt'], correlation : 0.6409715253775027
+selected feature list : ['f_content_unigram', 'wordInSentence_avg', 'external_banner_cnt', 'word_cnt'], correlation : 0.6448908348038368
+selected feature list : ['f_content_unigram', 'wordInSentence_avg', 'external_banner_cnt', 'word_cnt', 'f_title_unigram'], correlation : 0.6430748450829424
+selected feature list : ['f_content_unigram', 'wordInSentence_avg', 'external_banner_cnt', 'word_cnt', 'f_title_unigram', 'tag_cnt'], correlation : 0.642136051086084
+selected feature list : ['f_content_unigram', 'wordInSentence_avg', 'external_banner_cnt', 'word_cnt', 'f_title_unigram', 'tag_cnt', 'img_cnt'], correlation : 0.6430159155939792
+selected feature list : ['f_content_unigram', 'wordInSentence_avg', 'external_banner_cnt', 'word_cnt', 'f_title_unigram', 'tag_cnt', 'img_cnt', 'comment_cnt'], correlation : 0.6420482907869994
+selected feature list : ['f_content_unigram', 'wordInSentence_avg', 'external_banner_cnt', 'word_cnt', 'f_title_unigram', 'tag_cnt', 'img_cnt', 'comment_cnt', 'include_map'], correlation : 0.64129655374881
+selected feature list : ['f_content_unigram', 'wordInSentence_avg', 'external_banner_cnt', 'word_cnt', 'f_title_unigram', 'tag_cnt', 'img_cnt', 'comment_cnt', 'include_map', 'sentence_cnt'], correlation : 0.6197245306302676
+selected feature list : ['f_content_unigram', 'wordInSentence_avg', 'external_banner_cnt', 'word_cnt', 'f_title_unigram', 'tag_cnt', 'img_cnt', 'comment_cnt', 'include_map', 'sentence_cnt', 'f_content_bigram'], correlation : 0.5481772492271664
+selected feature list : ['f_content_unigram', 'wordInSentence_avg', 'external_banner_cnt', 'word_cnt', 'f_title_unigram', 'tag_cnt', 'img_cnt', 'comment_cnt', 'include_map', 'sentence_cnt', 'f_content_bigram', 'text_len'], correlation : 0.5367072718422025
+selected feature list : ['f_content_unigram', 'wordInSentence_avg', 'external_banner_cnt', 'word_cnt', 'f_title_unigram', 'tag_cnt', 'img_cnt', 'comment_cnt', 'include_map', 'sentence_cnt', 'f_content_bigram', 'text_len', 'f_content_trigram'], correlation : 0.5200670713525254

@@ -1,0 +1,10 @@
+[
+    "text_len",
+    "f_title_unigram",
+    "f_content_unigram",
+    "f_content_bigram",
+    "f_content_trigram",
+    "sentence_cnt",
+    "word_cnt",
+    "wordInSentence_avg"
+]
