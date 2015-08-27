@@ -35,7 +35,6 @@ iframe{
 	border: #18909C 1px solid;
 	font-size: 200%
 }
-
 #search {
 	height: 100%;
 	width: 100%;
@@ -45,7 +44,7 @@ iframe{
 	font-size: 100%;
 	border: solid #18909C 5px;
 	text-decoration: none;
-
+	cursor:pointer;
 
 }
 
