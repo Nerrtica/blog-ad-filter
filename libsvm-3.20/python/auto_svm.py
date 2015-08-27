@@ -108,7 +108,7 @@ class make_model:
         self.parsed_json = parsed_json
         self.featureList = featureList
         self.modelFileName = path + "/model.txt"
-        self.SVMparameter = "-s 0 -t 0 -q"
+        self.SVMparameter = "-s 3 -t 0 -q"
 
     def makeFile (self):
         f = open("temp/data.txt", 'w')
